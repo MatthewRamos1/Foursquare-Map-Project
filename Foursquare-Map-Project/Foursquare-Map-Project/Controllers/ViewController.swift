@@ -13,6 +13,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemYellow
+        VenuesAPIClient.getVenues { (result) in
+            switch result {
+            case .failure(let appError):
+                print("error \(appError)")
+            case .success(let venue):
+                dump(venue)
+            }
+        }
     }
 
 
