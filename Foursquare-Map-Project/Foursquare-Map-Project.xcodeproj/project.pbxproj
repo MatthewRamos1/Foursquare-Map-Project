@@ -10,24 +10,47 @@
 		BE572E812400724B00B57246 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572E802400724B00B57246 /* AppDelegate.swift */; };
 		BE572E832400724B00B57246 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572E822400724B00B57246 /* SceneDelegate.swift */; };
 		BE572E852400724B00B57246 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572E842400724B00B57246 /* ViewController.swift */; };
-		BE572E882400724B00B57246 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE572E862400724B00B57246 /* Main.storyboard */; };
 		BE572E8A2400724D00B57246 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE572E892400724D00B57246 /* Assets.xcassets */; };
 		BE572E8D2400724D00B57246 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE572E8B2400724D00B57246 /* LaunchScreen.storyboard */; };
+		BE572EA1240092A200B57246 /* Foursquare_Map_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EA0240092A200B57246 /* Foursquare_Map_ProjectTests.swift */; };
+		BE572EAA2400F50000B57246 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EA92400F50000B57246 /* TabBarController.swift */; };
+		BE572EAD2400F67200B57246 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EAC2400F67200B57246 /* CollectionsViewController.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BE572EA3240092A200B57246 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BE572E752400724B00B57246 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BE572E7C2400724B00B57246;
+			remoteInfo = "Foursquare-Map-Project";
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		BE572E7D2400724B00B57246 /* Foursquare-Map-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Foursquare-Map-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE572E802400724B00B57246 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE572E822400724B00B57246 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		BE572E842400724B00B57246 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		BE572E872400724B00B57246 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BE572E892400724D00B57246 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE572E8C2400724D00B57246 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE572E8E2400724D00B57246 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE572E9E240092A100B57246 /* Foursquare-Map-ProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Foursquare-Map-ProjectTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE572EA0240092A200B57246 /* Foursquare_Map_ProjectTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Foursquare_Map_ProjectTests.swift; sourceTree = "<group>"; };
+		BE572EA2240092A200B57246 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BE572EA92400F50000B57246 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		BE572EAC2400F67200B57246 /* CollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
 		BE572E7A2400724B00B57246 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE572E9B240092A100B57246 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -41,6 +64,7 @@
 			isa = PBXGroup;
 			children = (
 				BE572E7F2400724B00B57246 /* Foursquare-Map-Project */,
+				BE572E9F240092A200B57246 /* Foursquare-Map-ProjectTests */,
 				BE572E7E2400724B00B57246 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				BE572E7D2400724B00B57246 /* Foursquare-Map-Project.app */,
+				BE572E9E240092A100B57246 /* Foursquare-Map-ProjectTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +81,73 @@
 		BE572E7F2400724B00B57246 /* Foursquare-Map-Project */ = {
 			isa = PBXGroup;
 			children = (
-				BE572E802400724B00B57246 /* AppDelegate.swift */,
-				BE572E822400724B00B57246 /* SceneDelegate.swift */,
-				BE572E842400724B00B57246 /* ViewController.swift */,
-				BE572E862400724B00B57246 /* Main.storyboard */,
-				BE572E892400724D00B57246 /* Assets.xcassets */,
-				BE572E8B2400724D00B57246 /* LaunchScreen.storyboard */,
+				BE572EAB2400F52400B57246 /* Cells */,
+				BE572EA8240092DB00B57246 /* Supporting Files */,
+				BE572E972400914A00B57246 /* Models */,
+				BE572E962400913E00B57246 /* Views */,
+				BE572E952400913500B57246 /* Controllers */,
+				BE572E942400912500B57246 /* Network Services */,
 				BE572E8E2400724D00B57246 /* Info.plist */,
 			);
 			path = "Foursquare-Map-Project";
+			sourceTree = "<group>";
+		};
+		BE572E942400912500B57246 /* Network Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Network Services";
+			sourceTree = "<group>";
+		};
+		BE572E952400913500B57246 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				BE572E842400724B00B57246 /* ViewController.swift */,
+				BE572EAC2400F67200B57246 /* CollectionsViewController.swift */,
+				BE572EA92400F50000B57246 /* TabBarController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		BE572E962400913E00B57246 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		BE572E972400914A00B57246 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		BE572E9F240092A200B57246 /* Foursquare-Map-ProjectTests */ = {
+			isa = PBXGroup;
+			children = (
+				BE572EA0240092A200B57246 /* Foursquare_Map_ProjectTests.swift */,
+				BE572EA2240092A200B57246 /* Info.plist */,
+			);
+			path = "Foursquare-Map-ProjectTests";
+			sourceTree = "<group>";
+		};
+		BE572EA8240092DB00B57246 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BE572E8B2400724D00B57246 /* LaunchScreen.storyboard */,
+				BE572E892400724D00B57246 /* Assets.xcassets */,
+				BE572E822400724B00B57246 /* SceneDelegate.swift */,
+				BE572E802400724B00B57246 /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BE572EAB2400F52400B57246 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +170,24 @@
 			productReference = BE572E7D2400724B00B57246 /* Foursquare-Map-Project.app */;
 			productType = "com.apple.product-type.application";
 		};
+		BE572E9D240092A100B57246 /* Foursquare-Map-ProjectTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BE572EA5240092A200B57246 /* Build configuration list for PBXNativeTarget "Foursquare-Map-ProjectTests" */;
+			buildPhases = (
+				BE572E9A240092A100B57246 /* Sources */,
+				BE572E9B240092A100B57246 /* Frameworks */,
+				BE572E9C240092A100B57246 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BE572EA4240092A200B57246 /* PBXTargetDependency */,
+			);
+			name = "Foursquare-Map-ProjectTests";
+			productName = "Foursquare-Map-ProjectTests";
+			productReference = BE572E9E240092A100B57246 /* Foursquare-Map-ProjectTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -99,6 +200,10 @@
 				TargetAttributes = {
 					BE572E7C2400724B00B57246 = {
 						CreatedOnToolsVersion = 11.0;
+					};
+					BE572E9D240092A100B57246 = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = BE572E7C2400724B00B57246;
 					};
 				};
 			};
@@ -116,6 +221,7 @@
 			projectRoot = "";
 			targets = (
 				BE572E7C2400724B00B57246 /* Foursquare-Map-Project */,
+				BE572E9D240092A100B57246 /* Foursquare-Map-ProjectTests */,
 			);
 		};
 /* End PBXProject section */
@@ -127,7 +233,13 @@
 			files = (
 				BE572E8D2400724D00B57246 /* LaunchScreen.storyboard in Resources */,
 				BE572E8A2400724D00B57246 /* Assets.xcassets in Resources */,
-				BE572E882400724B00B57246 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BE572E9C240092A100B57246 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -139,22 +251,32 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE572E852400724B00B57246 /* ViewController.swift in Sources */,
+				BE572EAA2400F50000B57246 /* TabBarController.swift in Sources */,
+				BE572EAD2400F67200B57246 /* CollectionsViewController.swift in Sources */,
 				BE572E812400724B00B57246 /* AppDelegate.swift in Sources */,
 				BE572E832400724B00B57246 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		BE572E9A240092A100B57246 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE572EA1240092A200B57246 /* Foursquare_Map_ProjectTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXVariantGroup section */
-		BE572E862400724B00B57246 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				BE572E872400724B00B57246 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
+/* Begin PBXTargetDependency section */
+		BE572EA4240092A200B57246 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BE572E7C2400724B00B57246 /* Foursquare-Map-Project */;
+			targetProxy = BE572EA3240092A200B57246 /* PBXContainerItemProxy */;
 		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
 		BE572E8B2400724D00B57246 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -316,6 +438,46 @@
 			};
 			name = Release;
 		};
+		BE572EA6240092A200B57246 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S55722VFBC;
+				INFOPLIST_FILE = "Foursquare-Map-ProjectTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "oscarvictoria.Foursquare-Map-ProjectTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Foursquare-Map-Project.app/Foursquare-Map-Project";
+			};
+			name = Debug;
+		};
+		BE572EA7240092A200B57246 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = S55722VFBC;
+				INFOPLIST_FILE = "Foursquare-Map-ProjectTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "oscarvictoria.Foursquare-Map-ProjectTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Foursquare-Map-Project.app/Foursquare-Map-Project";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -333,6 +495,15 @@
 			buildConfigurations = (
 				BE572E922400724D00B57246 /* Debug */,
 				BE572E932400724D00B57246 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BE572EA5240092A200B57246 /* Build configuration list for PBXNativeTarget "Foursquare-Map-ProjectTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BE572EA6240092A200B57246 /* Debug */,
+				BE572EA7240092A200B57246 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
