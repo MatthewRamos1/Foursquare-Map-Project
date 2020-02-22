@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,15 @@
 		BE572EA1240092A200B57246 /* Foursquare_Map_ProjectTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EA0240092A200B57246 /* Foursquare_Map_ProjectTests.swift */; };
 		BE572EAA2400F50000B57246 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EA92400F50000B57246 /* TabBarController.swift */; };
 		BE572EAD2400F67200B57246 /* CollectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EAC2400F67200B57246 /* CollectionsViewController.swift */; };
+		BE572EAF2400F97A00B57246 /* EmptyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EAE2400F97A00B57246 /* EmptyView.swift */; };
+		BE572EB12400F99400B57246 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EB02400F99400B57246 /* MainView.swift */; };
+		BE572EB32400F9A700B57246 /* CollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EB22400F9A700B57246 /* CollectionsView.swift */; };
+		BE572EB52400F9F500B57246 /* LocationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EB42400F9F500B57246 /* LocationsCell.swift */; };
+		BE572EB72400FA0600B57246 /* CollectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EB62400FA0600B57246 /* CollectionsCell.swift */; };
+		BE572EBA2400FA9A00B57246 /* Venues.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EB92400FA9A00B57246 /* Venues.swift */; };
+		BE572EBD2400FAE400B57246 /* NetworkHelper in Frameworks */ = {isa = PBXBuildFile; productRef = BE572EBC2400FAE400B57246 /* NetworkHelper */; };
+		BE572EC02400FB1200B57246 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = BE572EBF2400FB1200B57246 /* ImageKit */; };
+		BE572EC22400FB8800B57246 /* VenuesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EC12400FB8800B57246 /* VenuesAPIClient.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +49,13 @@
 		BE572EA2240092A200B57246 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BE572EA92400F50000B57246 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		BE572EAC2400F67200B57246 /* CollectionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsViewController.swift; sourceTree = "<group>"; };
+		BE572EAE2400F97A00B57246 /* EmptyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyView.swift; sourceTree = "<group>"; };
+		BE572EB02400F99400B57246 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		BE572EB22400F9A700B57246 /* CollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsView.swift; sourceTree = "<group>"; };
+		BE572EB42400F9F500B57246 /* LocationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsCell.swift; sourceTree = "<group>"; };
+		BE572EB62400FA0600B57246 /* CollectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsCell.swift; sourceTree = "<group>"; };
+		BE572EB92400FA9A00B57246 /* Venues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venues.swift; sourceTree = "<group>"; };
+		BE572EC12400FB8800B57246 /* VenuesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesAPIClient.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +63,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE572EBD2400FAE400B57246 /* NetworkHelper in Frameworks */,
+				BE572EC02400FB1200B57246 /* ImageKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +113,7 @@
 		BE572E942400912500B57246 /* Network Services */ = {
 			isa = PBXGroup;
 			children = (
+				BE572EC12400FB8800B57246 /* VenuesAPIClient.swift */,
 			);
 			path = "Network Services";
 			sourceTree = "<group>";
@@ -112,6 +131,9 @@
 		BE572E962400913E00B57246 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				BE572EAE2400F97A00B57246 /* EmptyView.swift */,
+				BE572EB02400F99400B57246 /* MainView.swift */,
+				BE572EB22400F9A700B57246 /* CollectionsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -119,6 +141,7 @@
 		BE572E972400914A00B57246 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				BE572EB92400FA9A00B57246 /* Venues.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -146,6 +169,8 @@
 		BE572EAB2400F52400B57246 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				BE572EB42400F9F500B57246 /* LocationsCell.swift */,
+				BE572EB62400FA0600B57246 /* CollectionsCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -166,6 +191,10 @@
 			dependencies = (
 			);
 			name = "Foursquare-Map-Project";
+			packageProductDependencies = (
+				BE572EBC2400FAE400B57246 /* NetworkHelper */,
+				BE572EBF2400FB1200B57246 /* ImageKit */,
+			);
 			productName = "Foursquare-Map-Project";
 			productReference = BE572E7D2400724B00B57246 /* Foursquare-Map-Project.app */;
 			productType = "com.apple.product-type.application";
@@ -216,6 +245,10 @@
 				Base,
 			);
 			mainGroup = BE572E742400724B00B57246;
+			packageReferences = (
+				BE572EBB2400FAE400B57246 /* XCRemoteSwiftPackageReference "NetworkHelperSPM" */,
+				BE572EBE2400FB1200B57246 /* XCRemoteSwiftPackageReference "ImageKit" */,
+			);
 			productRefGroup = BE572E7E2400724B00B57246 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -251,10 +284,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE572E852400724B00B57246 /* ViewController.swift in Sources */,
+				BE572EB12400F99400B57246 /* MainView.swift in Sources */,
+				BE572EB32400F9A700B57246 /* CollectionsView.swift in Sources */,
+				BE572EB72400FA0600B57246 /* CollectionsCell.swift in Sources */,
+				BE572EB52400F9F500B57246 /* LocationsCell.swift in Sources */,
 				BE572EAA2400F50000B57246 /* TabBarController.swift in Sources */,
 				BE572EAD2400F67200B57246 /* CollectionsViewController.swift in Sources */,
+				BE572EBA2400FA9A00B57246 /* Venues.swift in Sources */,
 				BE572E812400724B00B57246 /* AppDelegate.swift in Sources */,
+				BE572EAF2400F97A00B57246 /* EmptyView.swift in Sources */,
 				BE572E832400724B00B57246 /* SceneDelegate.swift in Sources */,
+				BE572EC22400FB8800B57246 /* VenuesAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +549,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BE572EBB2400FAE400B57246 /* XCRemoteSwiftPackageReference "NetworkHelperSPM" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/NetworkHelperSPM";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.6;
+			};
+		};
+		BE572EBE2400FB1200B57246 /* XCRemoteSwiftPackageReference "ImageKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/alexpaul/ImageKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.4;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BE572EBC2400FAE400B57246 /* NetworkHelper */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE572EBB2400FAE400B57246 /* XCRemoteSwiftPackageReference "NetworkHelperSPM" */;
+			productName = NetworkHelper;
+		};
+		BE572EBF2400FB1200B57246 /* ImageKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BE572EBE2400FB1200B57246 /* XCRemoteSwiftPackageReference "ImageKit" */;
+			productName = ImageKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BE572E752400724B00B57246 /* Project object */;
 }
