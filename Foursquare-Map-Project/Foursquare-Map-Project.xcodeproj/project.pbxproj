@@ -24,6 +24,7 @@
 		BE572EBD2400FAE400B57246 /* NetworkHelper in Frameworks */ = {isa = PBXBuildFile; productRef = BE572EBC2400FAE400B57246 /* NetworkHelper */; };
 		BE572EC02400FB1200B57246 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = BE572EBF2400FB1200B57246 /* ImageKit */; };
 		BE572EC22400FB8800B57246 /* VenuesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EC12400FB8800B57246 /* VenuesAPIClient.swift */; };
+		BE572EC52400FC7F00B57246 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EC42400FC7F00B57246 /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +57,7 @@
 		BE572EB62400FA0600B57246 /* CollectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsCell.swift; sourceTree = "<group>"; };
 		BE572EB92400FA9A00B57246 /* Venues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venues.swift; sourceTree = "<group>"; };
 		BE572EC12400FB8800B57246 /* VenuesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesAPIClient.swift; sourceTree = "<group>"; };
+		BE572EC42400FC7F00B57246 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 		BE572E7F2400724B00B57246 /* Foursquare-Map-Project */ = {
 			isa = PBXGroup;
 			children = (
+				BE572EC32400FC5800B57246 /* Secrets */,
 				BE572EAB2400F52400B57246 /* Cells */,
 				BE572EA8240092DB00B57246 /* Supporting Files */,
 				BE572E972400914A00B57246 /* Models */,
@@ -173,6 +176,14 @@
 				BE572EB62400FA0600B57246 /* CollectionsCell.swift */,
 			);
 			path = Cells;
+			sourceTree = "<group>";
+		};
+		BE572EC32400FC5800B57246 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				BE572EC42400FC7F00B57246 /* Keys.swift */,
+			);
+			path = Secrets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,6 +298,7 @@
 				BE572EB12400F99400B57246 /* MainView.swift in Sources */,
 				BE572EB32400F9A700B57246 /* CollectionsView.swift in Sources */,
 				BE572EB72400FA0600B57246 /* CollectionsCell.swift in Sources */,
+				BE572EC52400FC7F00B57246 /* Keys.swift in Sources */,
 				BE572EB52400F9F500B57246 /* LocationsCell.swift in Sources */,
 				BE572EAA2400F50000B57246 /* TabBarController.swift in Sources */,
 				BE572EAD2400F67200B57246 /* CollectionsViewController.swift in Sources */,
