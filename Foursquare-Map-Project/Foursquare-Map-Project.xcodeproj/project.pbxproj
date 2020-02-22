@@ -101,13 +101,13 @@
 		BE572E7F2400724B00B57246 /* Foursquare-Map-Project */ = {
 			isa = PBXGroup;
 			children = (
+				BE572EA8240092DB00B57246 /* Supporting Files */,
+				BE572E942400912500B57246 /* Network Services */,
 				BE572EC32400FC5800B57246 /* Secrets */,
 				BE572EAB2400F52400B57246 /* Cells */,
-				BE572EA8240092DB00B57246 /* Supporting Files */,
 				BE572E972400914A00B57246 /* Models */,
 				BE572E962400913E00B57246 /* Views */,
 				BE572E952400913500B57246 /* Controllers */,
-				BE572E942400912500B57246 /* Network Services */,
 				BE572E8E2400724D00B57246 /* Info.plist */,
 			);
 			path = "Foursquare-Map-Project";
