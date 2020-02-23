@@ -10,13 +10,42 @@ import Foundation
 import NetworkHelper
 
 struct VenuesAPIClient {
-    static func getVenues(completion: @escaping (Result <[Venues],AppError>)-> ()) {
-        let endpointURLString = "https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=2WSTB5DPXQTYMXOVPWPS2YLDEKSGMNAOTCCMIGPSVAYERJCJ&client_secret=CU3LAXBBAYNNU1V4FJSFS4JL0V4Z0B3OCBYMBAFAVQT0PNYC&v=20200221&query=tacos"
+    static func getVenues(query: String, completion: @escaping (Result <[Venues],AppError>)-> ()) {
+        
+         let searchQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "food"
+        
+        let endpointURLString = "https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=5CHW2NMJUZGJIO5UJSSSNCX2XIW4YBPD1Y5W2GCJNGKMILHV&client_secret=0Z4U2L14A5PFIRFQLDTOVUXPH5SKU1NWRWMUPS2MD0PEO0VO&v=20200221&query=\(searchQuery)"
+
+        guard let url = URL(string: endpointURLString) else {
+            completion(.failure(.badURL(endpointURLString)))
+            return
+        }
+
+        let request = URLRequest(url: url)
+
+        NetworkHelper.shared.performDataTask(with: request) { (result) in
+            switch result {
+            case .failure(let appError):
+                completion(.failure(.networkClientError(appError)))
+            case .success(let data):
+                do {
+                    let venues = try JSONDecoder().decode(Response.self, from: data)
+                    completion(.success(venues.response.venues))
+                } catch {
+                    completion(.failure(.decodingError(error)))
+                }
+
+            }
+        }
+    }
+    
+    static func getPhotos(venuesID: String ,completion: @escaping (Result <[Items], AppError>)-> ()) {
+        let endpointURLString = "https://api.foursquare.com/v2/venues/\(venuesID)/photos?client_id=5CHW2NMJUZGJIO5UJSSSNCX2XIW4YBPD1Y5W2GCJNGKMILHV&client_secret=0Z4U2L14A5PFIRFQLDTOVUXPH5SKU1NWRWMUPS2MD0PEO0VO&v=20200221"
         
         guard let url = URL(string: endpointURLString) else {
-               completion(.failure(.badURL(endpointURLString)))
-               return
-           }
+            completion(.failure(.badURL(endpointURLString)))
+            return
+        }
         
         let request = URLRequest(url: url)
         
@@ -26,9 +55,10 @@ struct VenuesAPIClient {
                 completion(.failure(.networkClientError(appError)))
             case .success(let data):
                 do {
-                    let venues = try JSONDecoder().decode(Response.self, from: data)
-                    let places = venues.response.venues
-                    completion(.success(places))
+                    let photos = try JSONDecoder().decode(Photos.self, from: data)
+                    let pictures = photos.response.photos.items
+                    completion(.success(pictures))
+                    
                 } catch {
                     completion(.failure(.decodingError(error)))
                 }
