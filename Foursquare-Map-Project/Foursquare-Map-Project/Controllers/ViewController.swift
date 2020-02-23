@@ -39,7 +39,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemYellow
+        view.backgroundColor = .systemBackground
         mainView.mapView.showsUserLocation = true
         mainView.mapView.delegate = self
         

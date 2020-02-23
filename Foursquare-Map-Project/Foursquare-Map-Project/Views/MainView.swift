@@ -11,6 +11,23 @@ import MapKit
 
 class MainView: UIView {
     
+    public lazy var locationSearchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        return searchBar
+    }()
+    
+    public lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.setBackgroundImage(UIImage(systemName: "rectangle.grid.1x2.fill"), for: .normal)
+        return button
+    }()
+    
+    public lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        searchBar.showsCancelButton = true
+        return searchBar
+    }()
+    
     public lazy var mapView: MKMapView = {
         let mapView = MKMapView()
         return mapView
@@ -42,14 +59,50 @@ class MainView: UIView {
     }
     
     private func commonInit() {
+        configureButton()
+        configureSearchBar()
+        configureLocationSearchBar()
         configureMapView()
+    }
+    
+    private func configureLocationSearchBar() {
+        addSubview(locationSearchBar)
+        locationSearchBar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            locationSearchBar.topAnchor.constraint(equalTo: searchBar.bottomAnchor),
+            locationSearchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
+            locationSearchBar.trailingAnchor.constraint(equalTo: trailingAnchor)
+        ])
+    }
+    
+    private func configureButton() {
+        addSubview(cancelButton)
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            cancelButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            cancelButton.heightAnchor.constraint(equalToConstant: 60),
+            cancelButton.widthAnchor.constraint(equalToConstant: 70)
+        ])
+    }
+    
+
+    
+    private func configureSearchBar() {
+        addSubview(searchBar)
+        searchBar.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            searchBar.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            searchBar.leadingAnchor.constraint(equalTo: leadingAnchor),
+            searchBar.trailingAnchor.constraint(equalTo: cancelButton.leadingAnchor)
+        ])
     }
     
     private func configureMapView() {
         addSubview(mapView)
         mapView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: topAnchor),
+            mapView.topAnchor.constraint(equalTo: locationSearchBar.bottomAnchor),
             mapView.leadingAnchor.constraint(equalTo: leadingAnchor),
             mapView.trailingAnchor.constraint(equalTo: trailingAnchor),
             mapView.bottomAnchor.constraint(equalTo: bottomAnchor)
