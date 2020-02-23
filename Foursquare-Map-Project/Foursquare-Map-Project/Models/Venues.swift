@@ -89,47 +89,47 @@ class CoreLocationSession: NSObject {
         
         // get updates for user location
         
-//        startSignificantLocationChanges()
-        //
-        // startMonitoringRegion()
+        startSignificantLocationChanges()
+        
+//         startMonitoringRegion()
     }
     
-//    private func startSignificantLocationChanges() {
-//        if !CLLocationManager.significantLocationChangeMonitoringAvailable() {
-//            return
-//        }
-//
-//        locationManager.startMonitoringSignificantLocationChanges()
-//    }
+    private func startSignificantLocationChanges() {
+        if !CLLocationManager.significantLocationChangeMonitoringAvailable() {
+            return
+        }
+
+        locationManager.startMonitoringSignificantLocationChanges()
+    }
     
-//    public func convertCordinateToPlacemark(cordinate: CLLocationCoordinate2D) {
-//        // we will use the CLGeocoder() class for converting cordinate (CLLocationCoordinate2D) to placemark (CLPlacemark)
-//
-//        let location = CLLocation(latitude: cordinate.latitude, longitude: cordinate.longitude)
-//
-//        CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in
-//            if let error = error {
-//                print("reversedGeocodeLocation: \(error)")
-//            }
-//            if let firstPlaceMark = placemarks?.first {
-//                print("placemark info: \(firstPlaceMark)")
-//            }
-//        }
-//
-//    }
+    public func convertCordinateToPlacemark(cordinate: CLLocationCoordinate2D) {
+        // we will use the CLGeocoder() class for converting cordinate (CLLocationCoordinate2D) to placemark (CLPlacemark)
+
+        let location = CLLocation(latitude: cordinate.latitude, longitude: cordinate.longitude)
+
+        CLGeocoder().reverseGeocodeLocation(location) { (placemarks, error) in
+            if let error = error {
+                print("reversedGeocodeLocation: \(error)")
+            }
+            if let firstPlaceMark = placemarks?.first {
+                print("placemark info: \(firstPlaceMark)")
+            }
+        }
+
+    }
     
     
-//    public func convertPlacemarksToCordinate(adressString: String) {
-//        CLGeocoder().geocodeAddressString(adressString) { (placemarks, error) in
-//            if let error = error {
-//                print("geocodeAdressString: \(error)")
-//            }
-//            if let firstPlacemark = placemarks?.first,
-//                let location = firstPlacemark.location {
-//                print("coordinate is \(location.coordinate)")
-//            }
-//        }
-//    }
+    public func convertPlacemarksToCordinate(adressString: String) {
+        CLGeocoder().geocodeAddressString(adressString) { (placemarks, error) in
+            if let error = error {
+                print("geocodeAdressString: \(error)")
+            }
+            if let firstPlacemark = placemarks?.first,
+                let location = firstPlacemark.location {
+                print("coordinate is \(location.coordinate)")
+            }
+        }
+    }
     
 
 }
