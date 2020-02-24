@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0C5CD8792403394400E8449B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CD8782403394400E8449B /* Keys.swift */; };
 		0C6926EE24046827007CFE94 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926ED24046827007CFE94 /* ResultsViewController.swift */; };
+		0C6926F02404717B007CFE94 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926EF2404717B007CFE94 /* ResultsView.swift */; };
 		BE572E812400724B00B57246 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572E802400724B00B57246 /* AppDelegate.swift */; };
 		BE572E832400724B00B57246 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572E822400724B00B57246 /* SceneDelegate.swift */; };
 		BE572E852400724B00B57246 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572E842400724B00B57246 /* ViewController.swift */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		0C5CD8782403394400E8449B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Keys.swift; path = "../../../../Location-Notification-Lab/Location-Notification-Lab/Keys.swift"; sourceTree = "<group>"; };
 		0C6926ED24046827007CFE94 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
+		0C6926EF2404717B007CFE94 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		BE572E7D2400724B00B57246 /* Foursquare-Map-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Foursquare-Map-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE572E802400724B00B57246 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE572E822400724B00B57246 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 		BE572E962400913E00B57246 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0C6926EF2404717B007CFE94 /* ResultsView.swift */,
 				BE572EAE2400F97A00B57246 /* EmptyView.swift */,
 				BE572EB02400F99400B57246 /* MainView.swift */,
 				BE572EB22400F9A700B57246 /* CollectionsView.swift */,
@@ -310,6 +313,7 @@
 				BE572E812400724B00B57246 /* AppDelegate.swift in Sources */,
 				BE572EAF2400F97A00B57246 /* EmptyView.swift in Sources */,
 				BE572E832400724B00B57246 /* SceneDelegate.swift in Sources */,
+				0C6926F02404717B007CFE94 /* ResultsView.swift in Sources */,
 				BE572EC22400FB8800B57246 /* VenuesAPIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
