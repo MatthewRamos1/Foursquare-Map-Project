@@ -22,7 +22,16 @@ class ViewController: UIViewController {
         }
     }
     
-    //
+  
+    
+    var latLong = "" {
+        didSet {
+
+        }
+        
+    }
+    
+
     //    var item = [Items]() {
     //        didSet {
     //            DispatchQueue.main.async {
@@ -42,9 +51,27 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         configureMapView()
-        fetchVenues()
+        configureSearchBar()
         loadMapView()
-        
+    }
+    
+    func getLocation(query: String, location: String) {
+        locationSession.convertPlacemarksToCordinate(adressString: location) { (result) in
+            switch result {
+            case .failure(let appError):
+                print("app Error \(appError)")
+            case .success(let latLong):
+                self.latLong = "\(latLong.lat),\(latLong.long)"
+            }
+        }
+        fetchVenues(query: query, location: latLong)
+    }
+    
+    
+    
+    private func configureSearchBar() {
+        mainView.searchBar.delegate = self
+        mainView.locationSearchBar.delegate = self
     }
     
     private func configureMapView() {
@@ -52,8 +79,8 @@ class ViewController: UIViewController {
         mainView.mapView.delegate = self
     }
     
-    private func fetchVenues() {
-        VenuesAPIClient.getVenues(query: "tacos") { (result) in
+    private func fetchVenues(query: String, location: String) {
+        VenuesAPIClient.getVenues(query: query, latLong: location) { (result) in
             switch result {
             case .failure(let appError):
                 print("app error \(appError)")
@@ -76,11 +103,11 @@ class ViewController: UIViewController {
     
     
     private func loadMapView() {
-         let annotations = makeAnnotations()
+        let annotations = makeAnnotations()
         mainView.mapView.addAnnotations(annotations)
         mainView.mapView.showAnnotations(annotations, animated: true)
-     }
-
+    }
+    
     
     //    private func configureCollectionView() {
     //        mainView.collectionView.dataSource = self
@@ -152,6 +179,22 @@ extension ViewController: MKMapViewDelegate {
         print("calloutAccesoryControllTaped")
     }
 }
+
+extension ViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        if searchBar == mainView.searchBar {
+            getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
+            searchBar.resignFirstResponder()
+        } else if searchBar == mainView.locationSearchBar {
+            getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
+            searchBar.resignFirstResponder()
+        }
+        
+    }
+}
+
+
 
 
 
