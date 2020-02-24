@@ -10,19 +10,20 @@ import Foundation
 import NetworkHelper
 
 struct VenuesAPIClient {
-    static func getVenues(query: String, completion: @escaping (Result <[Venues],AppError>)-> ()) {
+    static func getVenues(query: String, latLong: String,  completion: @escaping (Result <[Venues],AppError>)-> ()) {
         
-         let searchQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "food"
+        let searchQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "food"
         
-        let endpointURLString = "https://api.foursquare.com/v2/venues/search?ll=40.7,-74&client_id=5CHW2NMJUZGJIO5UJSSSNCX2XIW4YBPD1Y5W2GCJNGKMILHV&client_secret=0Z4U2L14A5PFIRFQLDTOVUXPH5SKU1NWRWMUPS2MD0PEO0VO&v=20200221&query=\(searchQuery)"
-
+        let endpointURLString =
+        "https://api.foursquare.com/v2/venues/search?ll=\(latLong)&client_id=5CHW2NMJUZGJIO5UJSSSNCX2XIW4YBPD1Y5W2GCJNGKMILHV&client_secret=0Z4U2L14A5PFIRFQLDTOVUXPH5SKU1NWRWMUPS2MD0PEO0VO&v=20200221&query=\(searchQuery)"
+        
         guard let url = URL(string: endpointURLString) else {
             completion(.failure(.badURL(endpointURLString)))
             return
         }
-
+        
         let request = URLRequest(url: url)
-
+        
         NetworkHelper.shared.performDataTask(with: request) { (result) in
             switch result {
             case .failure(let appError):
@@ -34,7 +35,7 @@ struct VenuesAPIClient {
                 } catch {
                     completion(.failure(.decodingError(error)))
                 }
-
+                
             }
         }
     }
