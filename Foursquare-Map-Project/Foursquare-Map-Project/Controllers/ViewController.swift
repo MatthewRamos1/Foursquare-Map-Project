@@ -50,9 +50,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        navigationItem.title = "Search"
+        tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
         configureMapView()
         configureSearchBar()
         loadMapView()
+        mainView.cancelButton.addTarget(self, action: #selector(detailButtonWasPressed(_:)), for: .touchUpInside)
     }
     
     func getLocation(query: String, location: String) {
@@ -150,6 +153,12 @@ class ViewController: UIViewController {
     //        }
     //
     //    }
+    
+    @objc
+    func detailButtonWasPressed(_ input: UIButton) {
+        let resultsVC = ResultsViewController()
+        navigationController?.pushViewController(resultsVC, animated: true)
+    }
     
 }
 

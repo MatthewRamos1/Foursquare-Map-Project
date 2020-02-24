@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C5CD8792403394400E8449B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CD8782403394400E8449B /* Keys.swift */; };
+		0C6926EE24046827007CFE94 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926ED24046827007CFE94 /* ResultsViewController.swift */; };
 		BE572E812400724B00B57246 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572E802400724B00B57246 /* AppDelegate.swift */; };
 		BE572E832400724B00B57246 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572E822400724B00B57246 /* SceneDelegate.swift */; };
 		BE572E852400724B00B57246 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572E842400724B00B57246 /* ViewController.swift */; };
@@ -24,7 +26,6 @@
 		BE572EBD2400FAE400B57246 /* NetworkHelper in Frameworks */ = {isa = PBXBuildFile; productRef = BE572EBC2400FAE400B57246 /* NetworkHelper */; };
 		BE572EC02400FB1200B57246 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = BE572EBF2400FB1200B57246 /* ImageKit */; };
 		BE572EC22400FB8800B57246 /* VenuesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EC12400FB8800B57246 /* VenuesAPIClient.swift */; };
-		BE572EC52400FC7F00B57246 /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EC42400FC7F00B57246 /* Keys.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C5CD8782403394400E8449B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Keys.swift; path = "../../../../Location-Notification-Lab/Location-Notification-Lab/Keys.swift"; sourceTree = "<group>"; };
+		0C6926ED24046827007CFE94 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		BE572E7D2400724B00B57246 /* Foursquare-Map-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Foursquare-Map-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE572E802400724B00B57246 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE572E822400724B00B57246 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -57,7 +60,6 @@
 		BE572EB62400FA0600B57246 /* CollectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsCell.swift; sourceTree = "<group>"; };
 		BE572EB92400FA9A00B57246 /* Venues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venues.swift; sourceTree = "<group>"; };
 		BE572EC12400FB8800B57246 /* VenuesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesAPIClient.swift; sourceTree = "<group>"; };
-		BE572EC42400FC7F00B57246 /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +127,7 @@
 			isa = PBXGroup;
 			children = (
 				BE572E842400724B00B57246 /* ViewController.swift */,
+				0C6926ED24046827007CFE94 /* ResultsViewController.swift */,
 				BE572EAC2400F67200B57246 /* CollectionsViewController.swift */,
 				BE572EA92400F50000B57246 /* TabBarController.swift */,
 			);
@@ -181,7 +184,7 @@
 		BE572EC32400FC5800B57246 /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
-				BE572EC42400FC7F00B57246 /* Keys.swift */,
+				0C5CD8782403394400E8449B /* Keys.swift */,
 			);
 			path = Secrets;
 			sourceTree = "<group>";
@@ -297,8 +300,9 @@
 				BE572E852400724B00B57246 /* ViewController.swift in Sources */,
 				BE572EB12400F99400B57246 /* MainView.swift in Sources */,
 				BE572EB32400F9A700B57246 /* CollectionsView.swift in Sources */,
+				0C6926EE24046827007CFE94 /* ResultsViewController.swift in Sources */,
 				BE572EB72400FA0600B57246 /* CollectionsCell.swift in Sources */,
-				BE572EC52400FC7F00B57246 /* Keys.swift in Sources */,
+				0C5CD8792403394400E8449B /* Keys.swift in Sources */,
 				BE572EB52400F9F500B57246 /* LocationsCell.swift in Sources */,
 				BE572EAA2400F50000B57246 /* TabBarController.swift in Sources */,
 				BE572EAD2400F67200B57246 /* CollectionsViewController.swift in Sources */,
