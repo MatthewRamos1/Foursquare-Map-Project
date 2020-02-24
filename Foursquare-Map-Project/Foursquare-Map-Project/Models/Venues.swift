@@ -9,6 +9,11 @@
 import Foundation
 import CoreLocation
 
+enum LocationFetchingError: Error {
+    case error(Error)
+    case noErrorMessage
+}
+
 struct Response: Codable {
     let response: Venue
 }
@@ -118,18 +123,40 @@ class CoreLocationSession: NSObject {
 
     }
     
-    
-    public func convertPlacemarksToCordinate(adressString: String) {
-        CLGeocoder().geocodeAddressString(adressString) { (placemarks, error) in
-            if let error = error {
-                print("geocodeAdressString: \(error)")
-            }
-            if let firstPlacemark = placemarks?.first,
-                let location = firstPlacemark.location {
-                print("coordinate is \(location.coordinate)")
+    public func convertPlacemarksToCordinate(adressString: String, completion: @escaping (Result<(lat: Double, long: Double), LocationFetchingError>) -> Void) {
+        let geocoder = CLGeocoder()
+        DispatchQueue.global(qos: .userInitiated).async {
+            geocoder.geocodeAddressString(adressString){(placemarks, error) -> Void in
+                DispatchQueue.main.async {
+                    if let placemark = placemarks?.first, let coordinate = placemark.location?.coordinate {
+                        completion(.success((coordinate.latitude, coordinate.longitude)))
+                    } else {
+                        let locationError: LocationFetchingError
+                        if let error = error {
+                            locationError = .error(error)
+                        } else {
+                            locationError = .noErrorMessage
+                        }
+                        completion(.failure(locationError))
+                        
+                    }
+                }
             }
         }
     }
+    
+    
+//    public func convertPlacemarksToCordinate(adressString: String) {
+//        CLGeocoder().geocodeAddressString(adressString) { (placemarks, error) in
+//            if let error = error {
+//                print("geocodeAdressString: \(error)")
+//            }
+//            if let firstPlacemark = placemarks?.first,
+//                let location = firstPlacemark.location {
+//                print("coordinate is \(location.coordinate)")
+//            }
+//        }
+//    }
     
 
 }
