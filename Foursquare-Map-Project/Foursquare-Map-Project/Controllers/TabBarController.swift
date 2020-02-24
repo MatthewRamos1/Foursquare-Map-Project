@@ -10,11 +10,6 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
-//    private lazy var viewController: ViewController = {
-//         let vc = ViewController(dataPersistence)
-//         vc.tabBarItem = UITabBarItem(title: "View", image: UIImage(systemName: "magnifyingglass"), tag: 0)
-//         return vc
-//     }()
     
     private lazy var viewController: ViewController = {
         let vc = ViewController()

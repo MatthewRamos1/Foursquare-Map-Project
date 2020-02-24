@@ -13,18 +13,20 @@ class MainView: UIView {
     
     public lazy var locationSearchBar: UISearchBar = {
         let searchBar = UISearchBar()
+        searchBar.placeholder = "search for location"
         return searchBar
     }()
     
     public lazy var cancelButton: UIButton = {
         let button = UIButton()
-        button.setBackgroundImage(UIImage(systemName: "rectangle.grid.1x2.fill"), for: .normal)
+        button.setBackgroundImage(UIImage(named: "icons8-menu"), for: .normal)
         return button
     }()
     
     public lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.showsCancelButton = true
+        searchBar.placeholder = "search for venue"
         return searchBar
     }()
     
@@ -80,7 +82,7 @@ class MainView: UIView {
         cancelButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             cancelButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
-            cancelButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -12),
+            cancelButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -8),
             cancelButton.heightAnchor.constraint(equalToConstant: 60),
             cancelButton.widthAnchor.constraint(equalToConstant: 70)
         ])
