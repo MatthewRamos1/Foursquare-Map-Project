@@ -105,9 +105,9 @@
 		BE572E7F2400724B00B57246 /* Foursquare-Map-Project */ = {
 			isa = PBXGroup;
 			children = (
-				BE92BC772406F9D400AB982D /* Secrets */,
 				BE572EA8240092DB00B57246 /* Supporting Files */,
 				BE572E942400912500B57246 /* Network Services */,
+				BE92BC772406F9D400AB982D /* Secrets */,
 				BE572EAB2400F52400B57246 /* Cells */,
 				BE572E972400914A00B57246 /* Models */,
 				BE572E962400913E00B57246 /* Views */,
