@@ -15,14 +15,14 @@ enum LocationFetchingError: Error {
 }
 
 struct Response: Codable {
-    let response: Venue
+    let response: VenueData
+}
+
+struct VenueData: Codable {
+    let venues: [Venue]
 }
 
 struct Venue: Codable {
-    let venues: [Venues]
-}
-
-struct Venues: Codable {
     let id, name: String
     let location: Location
     let categories: [Categories]

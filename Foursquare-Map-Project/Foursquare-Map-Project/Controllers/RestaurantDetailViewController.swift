@@ -14,7 +14,7 @@ import SafariServices
 class RestaurantDetailViewController: UIViewController {
 
     private var detailView = RestaurantDetailView()
-    private var venue: Venues
+    private var venue: Venue
 //   private var dataPersistence: DataPersistence<Venues>
     let toolBar = UIToolbar()
     

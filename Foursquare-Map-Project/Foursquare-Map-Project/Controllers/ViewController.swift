@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     
     var mainView = MainView()
     
-    var venues = [Venues]() {
+    var venues = [Venue]() {
         didSet {
             DispatchQueue.main.async {
                 self.loadMapView()

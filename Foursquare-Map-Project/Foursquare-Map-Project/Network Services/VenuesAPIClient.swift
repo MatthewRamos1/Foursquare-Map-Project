@@ -10,7 +10,7 @@ import Foundation
 import NetworkHelper
 
 struct VenuesAPIClient {
-    static func getVenues(query: String, latLong: String,  completion: @escaping (Result <[Venues],AppError>)-> ()) {
+    static func getVenues(query: String, latLong: String,  completion: @escaping (Result <[Venue],AppError>)-> ()) {
         
         let searchQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "food"
         
