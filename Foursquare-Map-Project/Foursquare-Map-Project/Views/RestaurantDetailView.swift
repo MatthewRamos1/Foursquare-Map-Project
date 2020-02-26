@@ -137,6 +137,6 @@ class RestaurantDetailView: UIView {
         description2TextView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
         description2TextView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20)
         ])
-        
+        //
     }
 }
