@@ -39,7 +39,7 @@ class MainView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         let cv = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
-        cv.backgroundColor = .systemRed
+        cv.backgroundColor = .clear
         return cv
     }()
     
@@ -65,6 +65,7 @@ class MainView: UIView {
         configureSearchBar()
         configureLocationSearchBar()
         configureMapView()
+        configureCollectionView()
     }
     
     private func configureLocationSearchBar() {
@@ -111,16 +112,17 @@ class MainView: UIView {
         ])
     }
     
-//    private func configureCollectionView() {
-//        addSubview(collectionView)
-//        collectionView.translatesAutoresizingMaskIntoConstraints = false
-//        NSLayoutConstraint.activate([
-//            collectionView.topAnchor.constraint(equalTo: topAnchor, constant: 50),
-//            collectionView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//            collectionView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            collectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.4)
-//        ])
-//    }
+    private func configureCollectionView() {
+        mapView.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.bottomAnchor.constraint(equalTo: mapView.bottomAnchor, constant: -100),
+            collectionView.leadingAnchor.constraint(equalTo: mapView.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: mapView.trailingAnchor),
+            collectionView.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.2),
+            collectionView.widthAnchor.constraint(equalTo: heightAnchor)
+        ])
+    }
     
 //    private func configureVenueImage() {
 //        addSubview(venueImage)
