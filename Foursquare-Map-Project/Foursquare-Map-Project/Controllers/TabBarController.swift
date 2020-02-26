@@ -10,23 +10,22 @@ import UIKit
 
 class TabBarController: UITabBarController {
     
-    
-    private lazy var viewController: ViewController = {
-        let vc = ViewController()
-        vc.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
-        return vc
+    private lazy var searchNavController: UINavigationController = {
+        let navC = UINavigationController(rootViewController: ViewController())
+        navC.navigationBar.prefersLargeTitles = true
+        return navC
     }()
     
-    private lazy var collectionsController: CollectionsViewController = {
-        let vc = CollectionsViewController()
-        vc.tabBarItem = UITabBarItem(title: "Collections", image: UIImage(systemName: "folder"), tag: 1)
-        return vc
+    private lazy var collectionsNavController: UINavigationController = {
+        let navC = UINavigationController(rootViewController: CollectionsViewController())
+        navC.navigationBar.prefersLargeTitles = true
+        navC.tabBarItem = UITabBarItem(title: "Collections", image: UIImage(systemName: "folder"), tag: 1)
+        return navC
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        viewControllers = [viewController, collectionsController]
+        viewControllers = [searchNavController, collectionsNavController]
        
     }
     

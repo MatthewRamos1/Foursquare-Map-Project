@@ -50,9 +50,19 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
+        navigationItem.title = "Search"
+        tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 0)
         configureMapView()
+        configureCollectionView()
         configureSearchBar()
         loadMapView()
+        mainView.cancelButton.addTarget(self, action: #selector(detailButtonWasPressed(_:)), for: .touchUpInside)
+    }
+    
+    func configureCollectionView() {
+        mainView.collectionView.dataSource = self
+        mainView.collectionView.delegate = self 
+        mainView.collectionView.register(LocationsCell.self, forCellWithReuseIdentifier: "venueCell")
     }
     
     func getLocation(query: String, location: String) {
@@ -151,6 +161,12 @@ class ViewController: UIViewController {
     //
     //    }
     
+    @objc
+    func detailButtonWasPressed(_ input: UIButton) {
+        let resultsVC = ResultsViewController()
+        navigationController?.pushViewController(resultsVC, animated: true)
+    }
+    
 }
 
 extension ViewController: MKMapViewDelegate {
@@ -196,23 +212,21 @@ extension ViewController: UISearchBarDelegate {
 
 
 
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 50
+    }
+
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "venueCell", for: indexPath) as? LocationsCell else {
+            fatalError("could not get cell")
+        }
 
 
-//extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
-//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return item.count
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "venueCell", for: indexPath) as? LocationsCell else {
-//            fatalError("could not get cell")
-//        }
-//
-//
-////        let venue = venues[indexPath.row]
-//
+//        let venue = venues[indexPath.row]
+
 //        let photo = item[indexPath.row]
-//
+
 //        cell.venueImage.getImage(with: "\(photo.prefix)400x400\(photo.suffix)") { (result) in
 //            switch result {
 //            case .failure(let appError):
@@ -223,14 +237,14 @@ extension ViewController: UISearchBarDelegate {
 //                }
 //            }
 //        }
-//
-//        cell.backgroundColor = .gray
-//        return cell
-//    }
-//
-//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return CGSize(width: 300, height: 300)
-//    }
-//}
+
+        cell.backgroundColor = .gray
+        return cell
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 300, height: 300)
+    }
+}
 
 
