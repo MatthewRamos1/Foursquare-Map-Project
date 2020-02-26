@@ -37,10 +37,10 @@ class LocationsCell: UICollectionViewCell {
         addSubview(venueImage)
         venueImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            venueImage.topAnchor.constraint(equalTo: topAnchor, constant: 20),
+            venueImage.topAnchor.constraint(equalTo: topAnchor),
             venueImage.leadingAnchor.constraint(equalTo: leadingAnchor),
             venueImage.trailingAnchor.constraint(equalTo: trailingAnchor),
-            venueImage.heightAnchor.constraint(equalTo: heightAnchor, multiplier: 0.5)
+            venueImage.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
     
