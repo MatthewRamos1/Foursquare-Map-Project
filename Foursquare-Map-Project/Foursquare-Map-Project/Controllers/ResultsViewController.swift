@@ -16,6 +16,9 @@ class ResultsViewController: UIViewController {
         super.viewDidLoad()
         navigationItem.title = "Results"
         resultsView.tableView.dataSource = self
+        resultsView.tableView.delegate = self
+        resultsView.tableView.register(UINib(nibName: "ResultCell", bundle: nil), forCellReuseIdentifier: "resultCell")
+        
         
     }
     
@@ -33,6 +36,11 @@ extension ResultsViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath)
         return cell
     }
-    
-    
 }
+
+extension ResultsViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        UIScreen.main.bounds.height / 8
+    }
+}
+
