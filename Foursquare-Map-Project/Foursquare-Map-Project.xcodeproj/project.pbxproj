@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C53C1B62406FA3900D4CBBC /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53C1B52406FA3900D4CBBC /* ResultCell.swift */; };
+		0C53C1B82406FABE00D4CBBC /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C53C1B72406FABE00D4CBBC /* ResultCell.xib */; };
 		0C5CD8792403394400E8449B /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C5CD8782403394400E8449B /* Keys.swift */; };
 		0C6926EE24046827007CFE94 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926ED24046827007CFE94 /* ResultsViewController.swift */; };
 		0C6926F02404717B007CFE94 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926EF2404717B007CFE94 /* ResultsView.swift */; };
@@ -40,6 +42,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C53C1B52406FA3900D4CBBC /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
+		0C53C1B72406FABE00D4CBBC /* ResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
 		0C5CD8782403394400E8449B /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Keys.swift; path = "../../../../Location-Notification-Lab/Location-Notification-Lab/Keys.swift"; sourceTree = "<group>"; };
 		0C6926ED24046827007CFE94 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		0C6926EF2404717B007CFE94 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
@@ -171,6 +175,7 @@
 				BE572E892400724D00B57246 /* Assets.xcassets */,
 				BE572E822400724B00B57246 /* SceneDelegate.swift */,
 				BE572E802400724B00B57246 /* AppDelegate.swift */,
+				0C53C1B72406FABE00D4CBBC /* ResultCell.xib */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -178,6 +183,7 @@
 		BE572EAB2400F52400B57246 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
+				0C53C1B52406FA3900D4CBBC /* ResultCell.swift */,
 				BE572EB42400F9F500B57246 /* LocationsCell.swift */,
 				BE572EB62400FA0600B57246 /* CollectionsCell.swift */,
 			);
@@ -282,6 +288,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE572E8D2400724D00B57246 /* LaunchScreen.storyboard in Resources */,
+				0C53C1B82406FABE00D4CBBC /* ResultCell.xib in Resources */,
 				BE572E8A2400724D00B57246 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -310,6 +317,7 @@
 				BE572EAA2400F50000B57246 /* TabBarController.swift in Sources */,
 				BE572EAD2400F67200B57246 /* CollectionsViewController.swift in Sources */,
 				BE572EBA2400FA9A00B57246 /* Venues.swift in Sources */,
+				0C53C1B62406FA3900D4CBBC /* ResultCell.swift in Sources */,
 				BE572E812400724B00B57246 /* AppDelegate.swift in Sources */,
 				BE572EAF2400F97A00B57246 /* EmptyView.swift in Sources */,
 				BE572E832400724B00B57246 /* SceneDelegate.swift in Sources */,
