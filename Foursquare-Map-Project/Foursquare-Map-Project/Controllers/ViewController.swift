@@ -208,6 +208,23 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let venue = venues[indexPath.row]
+        guard let cell = collectionView.cellForItem(at: indexPath) as? LocationsCell else {
+            fatalError("couldnt access cell at didSelect")
+        }
+        
+        guard let image = cell.venueImage.image else {
+            fatalError("couldnt access image at didSelect")
+        }
+        
+        guard let savedVenue = createSavedVenue(venue: venue, image: image) else {
+            fatalError("couldn't use savedImage at didSelect")
+        }
+        let detailVC = RestaurantDetailViewController(savedVenue)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 300, height: 300)
     }

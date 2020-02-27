@@ -14,9 +14,14 @@ import SafariServices
 class RestaurantDetailViewController: UIViewController {
 
     private var detailView = RestaurantDetailView()
-    private var venue: Venue
 //   private var dataPersistence: DataPersistence<Venues>
     let toolBar = UIToolbar()
+    private var savedVenue: SavedVenue
+    
+    init(_ savedVenue: SavedVenue) {
+        self.savedVenue = savedVenue
+        super.init(nibName: nil, bundle: nil)
+    }
     
 //    init(dataPersistence: DataPersistence<Venues>, venue: Venues) {
 //        self.dataPersistence = dataPersistence
@@ -35,14 +40,14 @@ class RestaurantDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
 
     }
     
     public func updateUI() {
-        
-        detailView.titleLabel.text = venue.name.capitalized
-        detailView.locationLabel.text = venue.location.formattedAddress.description
-        
+        detailView.restuarantImage.image = UIImage(data: savedVenue.imageData)
+        detailView.titleLabel.text = savedVenue.name
+   
     }
 
 }
