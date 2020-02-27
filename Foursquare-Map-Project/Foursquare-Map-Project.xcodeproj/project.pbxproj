@@ -14,6 +14,7 @@
 		0C6926F02404717B007CFE94 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926EF2404717B007CFE94 /* ResultsView.swift */; };
 		A6DB6FF42406F49900A54C8B /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DB6FF32406F49900A54C8B /* RestaurantDetailView.swift */; };
 		A6DB6FF62407047C00A54C8B /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DB6FF52407047C00A54C8B /* RestaurantDetailViewController.swift */; };
+		A6DB6FFC2407211900A54C8B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DB6FFB2407211900A54C8B /* CollectionViewCell.swift */; };
 		BE572E812400724B00B57246 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572E802400724B00B57246 /* AppDelegate.swift */; };
 		BE572E832400724B00B57246 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572E822400724B00B57246 /* SceneDelegate.swift */; };
 		BE572E852400724B00B57246 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572E842400724B00B57246 /* ViewController.swift */; };
@@ -51,6 +52,7 @@
 		0C6926EF2404717B007CFE94 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		A6DB6FF32406F49900A54C8B /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 		A6DB6FF52407047C00A54C8B /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
+		A6DB6FFB2407211900A54C8B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
 		BE572E7D2400724B00B57246 /* Foursquare-Map-Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Foursquare-Map-Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE572E802400724B00B57246 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE572E822400724B00B57246 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +154,7 @@
 				BE572EAE2400F97A00B57246 /* EmptyView.swift */,
 				BE572EB02400F99400B57246 /* MainView.swift */,
 				BE572EB22400F9A700B57246 /* CollectionsView.swift */,
+				A6DB6FFB2407211900A54C8B /* CollectionViewCell.swift */,
 				A6DB6FF32406F49900A54C8B /* RestaurantDetailView.swift */,
 			);
 			path = Views;
@@ -324,6 +327,7 @@
 				0C53C1BC2407146600D4CBBC /* Keys.swift in Sources */,
 				A6DB6FF62407047C00A54C8B /* RestaurantDetailViewController.swift in Sources */,
 				BE572EAD2400F67200B57246 /* CollectionsViewController.swift in Sources */,
+				A6DB6FFC2407211900A54C8B /* CollectionViewCell.swift in Sources */,
 				A6DB6FF42406F49900A54C8B /* RestaurantDetailView.swift in Sources */,
 				BE572EBA2400FA9A00B57246 /* Venue.swift in Sources */,
 				0C53C1B62406FA3900D4CBBC /* ResultCell.swift in Sources */,
