@@ -67,10 +67,10 @@ class CollectionsViewController: UIViewController {
         containerView.addSubview(doneButton)
         doneButton.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            doneButton.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 8),
-            doneButton.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -8),
-            doneButton.heightAnchor.constraint(equalTo: self.containerView.heightAnchor, multiplier: 0.05),
-            doneButton.widthAnchor.constraint(equalTo: self.containerView.widthAnchor, multiplier: 0.05)
+            doneButton.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 20),
+            doneButton.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -20),
+            doneButton.heightAnchor.constraint(equalTo: self.containerView.heightAnchor, multiplier: 0.07),
+            doneButton.widthAnchor.constraint(equalTo: self.containerView.widthAnchor, multiplier: 0.15)
         ])
 
     }
