@@ -18,6 +18,13 @@ class CollectionsView: UIView {
         return cv
     }()
     
+        public lazy var plusButton: UIButton = {
+          let button = UIButton()
+          button.setImage(UIImage(systemName: "plus.circle"), for: .normal)
+    //      button.addTarget(self, action: #selector(plusButtonPressed(_:)), for: .touchUpInside)
+          return button
+        }()
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -29,9 +36,20 @@ class CollectionsView: UIView {
     }
     
     private func commonInit() {
+       // setupPlusButtonConstraints()
         setupCollectionViewConstraints()
     }
     
+    private func setupPlusButtonConstraints() {
+      addSubview(plusButton)
+      plusButton.translatesAutoresizingMaskIntoConstraints = false
+      NSLayoutConstraint.activate([
+        plusButton.topAnchor.constraint(equalTo: topAnchor),
+        plusButton.trailingAnchor.constraint(equalTo: trailingAnchor),
+        plusButton.heightAnchor.constraint(equalToConstant: 44),
+        plusButton.widthAnchor.constraint(equalTo: plusButton.heightAnchor)
+      ])
+    }
     
     private func setupCollectionViewConstraints() {
         addSubview(collectionView)

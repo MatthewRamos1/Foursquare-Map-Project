@@ -12,19 +12,83 @@ class CollectionsViewController: UIViewController {
     
     private let collectionView = CollectionsView()
     
+    private var containerViewHeight:CGFloat!
+    private var containerViewTopAnchor: NSLayoutConstraint!
+     private var newContainerViewTopAnchor: NSLayoutConstraint!
+    
+    
+    lazy var containerView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .blue
+        return view
+    }()
+    lazy var doneButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Done", for: .normal)
+        button.backgroundColor = .red
+        button.addTarget(self, action: #selector(doneButtonPressed(sender:)), for: .touchUpInside)
+        return button
+    }()
+    
     override func loadView() {
       view = collectionView
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        containerViewHeight = view.frame.height - 200
         view.backgroundColor = .systemBackground
         navigationItem.title = "Collections"
+        setupContainerViewConstraints()
+        setupDoneButtonConsgtraints()
             collectionView.collectionView.dataSource = self
             collectionView.collectionView.delegate = self
         collectionView.collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionsCell")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(plusButtonPressed))
+        
     }
+    
+    @objc func plusButtonPressed(sender:UIBarButtonItem){
+        containerViewTopAnchor.isActive = false
+        newContainerViewTopAnchor.isActive = true
+        UIView.animate(withDuration: 1) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    @objc func doneButtonPressed(sender:UIButton) {
+        containerViewTopAnchor.isActive = true
+        newContainerViewTopAnchor.isActive = false
+        UIView.animate(withDuration: 1) {
+            self.view.layoutIfNeeded()
+        }
+    }
+    
+    private func setupDoneButtonConsgtraints() {
+        containerView.addSubview(doneButton)
+        doneButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            doneButton.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 8),
+            doneButton.trailingAnchor.constraint(equalTo: self.containerView.trailingAnchor, constant: -8),
+            doneButton.heightAnchor.constraint(equalTo: self.containerView.heightAnchor, multiplier: 0.05),
+            doneButton.widthAnchor.constraint(equalTo: self.containerView.widthAnchor, multiplier: 0.05)
+        ])
 
+    }
+    private func setupContainerViewConstraints() {
+        view.addSubview(containerView)
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            containerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            containerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            containerView.heightAnchor.constraint(equalToConstant: containerViewHeight)
+        ])
+        containerViewTopAnchor = containerView.topAnchor.constraint(equalTo: view.bottomAnchor)
+        containerViewTopAnchor.isActive = true
+        
+        newContainerViewTopAnchor = containerView.topAnchor.constraint(equalTo: view.bottomAnchor, constant: -containerViewHeight)
+        newContainerViewTopAnchor.isActive = false
+    }
+    
 }
 
 extension CollectionsViewController: UICollectionViewDataSource {

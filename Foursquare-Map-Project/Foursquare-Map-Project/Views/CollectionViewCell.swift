@@ -8,7 +8,11 @@
 
 import UIKit
 
+
+
 class CollectionViewCell: UICollectionViewCell {
+    
+
     
     public lazy var restuarantImage: UIImageView = {
         let imageView = UIImageView()
@@ -38,10 +42,12 @@ class CollectionViewCell: UICollectionViewCell {
     
     private func commonInit() {
 
-    backgroundColor = .systemYellow
+  
         setupRestaurantImage()
         setupCategoryLabel()
     }
+    
+
     
     private func setupRestaurantImage() {
         addSubview(restuarantImage)
