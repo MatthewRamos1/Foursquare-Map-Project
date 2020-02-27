@@ -15,7 +15,7 @@ struct VenuesAPIClient {
         let searchQuery = query.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? "food"
         
         let endpointURLString =
-        "https://api.foursquare.com/v2/venues/search?ll=\(latLong)&client_id=\(Chain.id)&client_secret=\(Chain.secret)&v=20200221&query=\(searchQuery)&limit=10"
+        "https://api.foursquare.com/v2/venues/search?ll=\(latLong)&client_id=\(Chain.id)&client_secret=\(Chain.secret)&v=20200221&query=\(searchQuery)&limit=4"
         
         guard let url = URL(string: endpointURLString) else {
             completion(.failure(.badURL(endpointURLString)))
@@ -40,7 +40,7 @@ struct VenuesAPIClient {
         }
     }
     
-    static func getPhotos(venuesID: String ,completion: @escaping (Result <[Items], AppError>)-> ()) {
+    static func getPhoto(venuesID: String ,completion: @escaping (Result <Items, AppError>)-> ()) {
         let endpointURLString = "https://api.foursquare.com/v2/venues/\(venuesID)/photos?client_id=\(Chain.id)&client_secret=\(Chain.secret)&v=20200221"
         
         guard let url = URL(string: endpointURLString) else {
@@ -57,13 +57,12 @@ struct VenuesAPIClient {
             case .success(let data):
                 do {
                     let photos = try JSONDecoder().decode(Photos.self, from: data)
-                    let pictures = photos.response.photos.items
-                    completion(.success(pictures))
+                    let picture = photos.response.photos.items.first
+                    completion(.success(picture!))
                     
                 } catch {
                     completion(.failure(.decodingError(error)))
                 }
-                
             }
         }
     }

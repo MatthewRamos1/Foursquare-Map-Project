@@ -13,6 +13,7 @@
 		0C53C1C12407219600D4CBBC /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53C1C02407219600D4CBBC /* UIImage + Extensions.swift */; };
 		0C6926EE24046827007CFE94 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926ED24046827007CFE94 /* ResultsViewController.swift */; };
 		0C6926F02404717B007CFE94 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926EF2404717B007CFE94 /* ResultsView.swift */; };
+		0CAC4E4924085907008F032F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAC4E4824085907008F032F /* Keys.swift */; };
 		A6DB6FF42406F49900A54C8B /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DB6FF32406F49900A54C8B /* RestaurantDetailView.swift */; };
 		A6DB6FF62407047C00A54C8B /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DB6FF52407047C00A54C8B /* RestaurantDetailViewController.swift */; };
 		A6DB6FFC2407211900A54C8B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DB6FFB2407211900A54C8B /* CollectionViewCell.swift */; };
@@ -33,7 +34,6 @@
 		BE572EBD2400FAE400B57246 /* NetworkHelper in Frameworks */ = {isa = PBXBuildFile; productRef = BE572EBC2400FAE400B57246 /* NetworkHelper */; };
 		BE572EC02400FB1200B57246 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = BE572EBF2400FB1200B57246 /* ImageKit */; };
 		BE572EC22400FB8800B57246 /* VenuesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EC12400FB8800B57246 /* VenuesAPIClient.swift */; };
-		F142AC92240855C0007619AE /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F142AC91240855C0007619AE /* Secrets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +53,7 @@
 		0C53C1C02407219600D4CBBC /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
 		0C6926ED24046827007CFE94 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		0C6926EF2404717B007CFE94 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		0CAC4E4824085907008F032F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Keys.swift; path = "Foursquare-Map-Project/Secrets/Keys.swift"; sourceTree = SOURCE_ROOT; };
 		A6DB6FF32406F49900A54C8B /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 		A6DB6FF52407047C00A54C8B /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		A6DB6FFB2407211900A54C8B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -75,7 +76,6 @@
 		BE572EB62400FA0600B57246 /* CollectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsCell.swift; sourceTree = "<group>"; };
 		BE572EB92400FA9A00B57246 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		BE572EC12400FB8800B57246 /* VenuesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesAPIClient.swift; sourceTree = "<group>"; };
-		F142AC91240855C0007619AE /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Secrets.swift; path = "Foursquare-Map-Project/Secrets/Secrets.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -216,7 +216,7 @@
 		BE92BC772406F9D400AB982D /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
-				F142AC91240855C0007619AE /* Secrets.swift */,
+				0CAC4E4824085907008F032F /* Keys.swift */,
 			);
 			name = Secrets;
 			path = ../../../../.Trash/Secrets;
@@ -335,6 +335,7 @@
 				0C53C1C12407219600D4CBBC /* UIImage + Extensions.swift in Sources */,
 				BE572EB12400F99400B57246 /* MainView.swift in Sources */,
 				BE572EB32400F9A700B57246 /* CollectionsView.swift in Sources */,
+				0CAC4E4924085907008F032F /* Keys.swift in Sources */,
 				0C6926EE24046827007CFE94 /* ResultsViewController.swift in Sources */,
 				BE572EB72400FA0600B57246 /* CollectionsCell.swift in Sources */,
 				BE572EB52400F9F500B57246 /* LocationsCell.swift in Sources */,
@@ -347,7 +348,6 @@
 				0C53C1B62406FA3900D4CBBC /* ResultCell.swift in Sources */,
 				BE572E812400724B00B57246 /* AppDelegate.swift in Sources */,
 				BE572EAF2400F97A00B57246 /* EmptyView.swift in Sources */,
-				F142AC92240855C0007619AE /* Secrets.swift in Sources */,
 				BE572E832400724B00B57246 /* SceneDelegate.swift in Sources */,
 				0C6926F02404717B007CFE94 /* ResultsView.swift in Sources */,
 				BE572EC22400FB8800B57246 /* VenuesAPIClient.swift in Sources */,

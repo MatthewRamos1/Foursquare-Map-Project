@@ -96,24 +96,11 @@ class ViewController: UIViewController {
             case .failure(let appError):
                 print("app error \(appError)")
             case .success(let venues):
+                self.venues = venues
                 print(venues)
-                for value in venues {
-                    VenuesAPIClient.getPhotos(venuesID: value.id) { (result) in
-                         switch result {
-                         case .failure(let appError):
-                             print("app error \(appError)")
-                         case .success(let item):
-                             print(item)
-                             var emptyArryay = [Items]()
-                             for value in item {
-                                emptyArryay.append(value)
-                            }
-                             print(emptyArryay)
-                         }
-                     }
-                }
             }
         }
+        
     }
     
     func makeAnnotations() -> [MKPointAnnotation] {
@@ -189,16 +176,35 @@ extension ViewController: UISearchBarDelegate {
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return venues.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "venueCell", for: indexPath) as? LocationsCell else {
             fatalError("could not get cell")
         }
-        
-        
-        cell.backgroundColor = .gray
+        let venue = venues[indexPath.row]
+        let id = venue.id
+        var item: Items!
+            VenuesAPIClient.getPhoto(venuesID: id) { (result) in
+            switch result {
+            case .failure(let appError):
+                print("Error: \(appError)")
+            case .success(let image):
+                item = image
+                let imageURL = "\(item.prefix)400x400\(item.suffix)"
+                cell.venueImage.getImage1(with: imageURL) { (result) in
+                    switch result {
+                    case .failure(let appError):
+                        print("Error: \(appError)")
+                    case .success(let image):
+                        DispatchQueue.main.async {
+                            cell.venueImage.image = image
+                        }
+                    }
+            }
+        }
+    }
         return cell
     }
     
@@ -206,4 +212,5 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         return CGSize(width: 300, height: 300)
     }
 }
+
 
