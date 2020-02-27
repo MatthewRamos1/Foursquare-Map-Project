@@ -9,38 +9,41 @@
 import UIKit
 import ImageKit
 import MapKit
+import NetworkHelper
 
 class ViewController: UIViewController {
+    
+    private let locationSession = CoreLocationSession()
     
     var mainView = MainView()
     
     var venues = [Venue]() {
         didSet {
+            loadMapView()
             DispatchQueue.main.async {
-                self.loadMapView()
+                self.mainView.collectionView.reloadData()
             }
         }
     }
     
-  
-    
     var latLong = "" {
         didSet {
-
+            
         }
         
     }
     
-
-    //    var item = [Items]() {
-    //        didSet {
-    //            DispatchQueue.main.async {
-    //                self.mainView.collectionView.reloadData()
-    //            }
-    //        }
-    //    }
     
-    private let locationSession = CoreLocationSession()
+    
+    var item = [Items]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.mainView.collectionView.reloadData()
+            }
+        }
+    }
+    
+    
     
     
     override func loadView() {
@@ -61,7 +64,7 @@ class ViewController: UIViewController {
     
     func configureCollectionView() {
         mainView.collectionView.dataSource = self
-        mainView.collectionView.delegate = self 
+        mainView.collectionView.delegate = self
         mainView.collectionView.register(LocationsCell.self, forCellWithReuseIdentifier: "venueCell")
     }
     
@@ -76,8 +79,6 @@ class ViewController: UIViewController {
         }
         fetchVenues(query: query, location: latLong)
     }
-    
-    
     
     private func configureSearchBar() {
         mainView.searchBar.delegate = self
@@ -95,7 +96,22 @@ class ViewController: UIViewController {
             case .failure(let appError):
                 print("app error \(appError)")
             case .success(let venues):
-                self.venues = venues
+                print(venues)
+                for value in venues {
+                    VenuesAPIClient.getPhotos(venuesID: value.id) { (result) in
+                         switch result {
+                         case .failure(let appError):
+                             print("app error \(appError)")
+                         case .success(let item):
+                             print(item)
+                             var emptyArryay = [Items]()
+                             for value in item {
+                                emptyArryay.append(value)
+                            }
+                             print(emptyArryay)
+                         }
+                     }
+                }
             }
         }
     }
@@ -119,53 +135,13 @@ class ViewController: UIViewController {
     }
     
     
-    //    private func configureCollectionView() {
-    //        mainView.collectionView.dataSource = self
-    //        mainView.collectionView.delegate = self
-    //        mainView.collectionView.register(LocationsCell.self, forCellWithReuseIdentifier: "venueCell")
-    //    }
-    
-    //    func loadPhotoData() {
-    //        VenuesAPIClient.getVenues(query: "tacos") { (result) in
-    //            switch result {
-    //            case .failure(let appError):
-    //                print("app error \(appError)")
-    //            case .success(let venues):
-    //                self.venues = venues
-    //                var venueIDs = ""
-    //                for value in venues {
-    //                    venueIDs = value.id
-    //                }
-    //                print(venueIDs.count)
-    //                VenuesAPIClient.getPhotos(venuesID: venueIDs) { (result) in
-    //                       switch result {
-    //                       case .failure(let appError):
-    //                           print("app error \(appError)")
-    //                       case .success(let items):
-    //                           self.item = items
-    //                       }
-    //                   }
-    //            }
-    //        }
-    //    }
-    
-    //    func getPhotos() {
-    //        VenuesAPIClient.getPhotos(venuesID: "" ) { (result) in
-    //            switch result {
-    //            case .failure(let appError):
-    //                print("app error \(appError)")
-    //            case .success(let items):
-    //                self.item = items
-    //            }
-    //        }
-    //
-    //    }
-    
     @objc
     func detailButtonWasPressed(_ input: UIButton) {
         let resultsVC = ResultsViewController()
         navigationController?.pushViewController(resultsVC, animated: true)
     }
+    
+    
     
 }
 
@@ -206,7 +182,6 @@ extension ViewController: UISearchBarDelegate {
             getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
             searchBar.resignFirstResponder()
         }
-        
     }
 }
 
@@ -214,37 +189,21 @@ extension ViewController: UISearchBarDelegate {
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 50
+        return 10
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "venueCell", for: indexPath) as? LocationsCell else {
             fatalError("could not get cell")
         }
-
-
-//        let venue = venues[indexPath.row]
-
-//        let photo = item[indexPath.row]
-
-//        cell.venueImage.getImage(with: "\(photo.prefix)400x400\(photo.suffix)") { (result) in
-//            switch result {
-//            case .failure(let appError):
-//                print("app error \(appError)")
-//            case .success(let image):
-//                DispatchQueue.main.async {
-//                    cell.venueImage.image = image
-//                }
-//            }
-//        }
-
+        
+        
         cell.backgroundColor = .gray
         return cell
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize(width: 300, height: 300)
     }
 }
-
 
