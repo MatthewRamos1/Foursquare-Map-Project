@@ -68,12 +68,12 @@ class RestaurantDetailView: UIView {
     }
     
     private func commonInit() {
-    setupDescription2TextView()
-    setupDescription1TextView()
-    setupLocationLabel()
+    //setupDescription2TextView()
+    //setupDescription1TextView()
+    //setupLocationLabel()
     setupRestaurantImage()
-    setupTitleLabel()
-    setupFavoriteButton()
+    //setupTitleLabel()
+    //setupFavoriteButton()
     backgroundColor = .systemPink
     }
     
@@ -102,10 +102,10 @@ class RestaurantDetailView: UIView {
         addSubview(restuarantImage)
         restuarantImage.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            restuarantImage.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20),
+            restuarantImage.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
             restuarantImage.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
             restuarantImage.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20),
-            restuarantImage.heightAnchor.constraint(equalTo: safeAreaLayoutGuide.heightAnchor, constant: 0.40)
+            restuarantImage.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -20)
         ])
     }
     
