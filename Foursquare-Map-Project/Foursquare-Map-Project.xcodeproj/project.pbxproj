@@ -10,6 +10,8 @@
 		0C53C1B62406FA3900D4CBBC /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53C1B52406FA3900D4CBBC /* ResultCell.swift */; };
 		0C53C1B82406FABE00D4CBBC /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C53C1B72406FABE00D4CBBC /* ResultCell.xib */; };
 		0C53C1BC2407146600D4CBBC /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53C1BB2407146600D4CBBC /* Keys.swift */; };
+		0C53C1BE24071BDB00D4CBBC /* SavedVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53C1BD24071BDB00D4CBBC /* SavedVenue.swift */; };
+		0C53C1C12407219600D4CBBC /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53C1C02407219600D4CBBC /* UIImage + Extensions.swift */; };
 		0C6926EE24046827007CFE94 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926ED24046827007CFE94 /* ResultsViewController.swift */; };
 		0C6926F02404717B007CFE94 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926EF2404717B007CFE94 /* ResultsView.swift */; };
 		A6DB6FF42406F49900A54C8B /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DB6FF32406F49900A54C8B /* RestaurantDetailView.swift */; };
@@ -48,6 +50,8 @@
 		0C53C1B52406FA3900D4CBBC /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		0C53C1B72406FABE00D4CBBC /* ResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
 		0C53C1BB2407146600D4CBBC /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Keys.swift; path = "Foursquare-Map-Project/Supporting Files/Keys.swift"; sourceTree = SOURCE_ROOT; };
+		0C53C1BD24071BDB00D4CBBC /* SavedVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVenue.swift; sourceTree = "<group>"; };
+		0C53C1C02407219600D4CBBC /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
 		0C6926ED24046827007CFE94 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		0C6926EF2404717B007CFE94 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
 		A6DB6FF32406F49900A54C8B /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
@@ -94,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C53C1BF2407217300D4CBBC /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0C53C1C02407219600D4CBBC /* UIImage + Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		BE572E742400724B00B57246 = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +134,7 @@
 				BE572E972400914A00B57246 /* Models */,
 				BE572E962400913E00B57246 /* Views */,
 				BE572E952400913500B57246 /* Controllers */,
+				0C53C1BF2407217300D4CBBC /* Extensions */,
 				BE572E8E2400724D00B57246 /* Info.plist */,
 			);
 			path = "Foursquare-Map-Project";
@@ -164,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				BE572EB92400FA9A00B57246 /* Venue.swift */,
+				0C53C1BD24071BDB00D4CBBC /* SavedVenue.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -318,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE572E852400724B00B57246 /* ViewController.swift in Sources */,
+				0C53C1C12407219600D4CBBC /* UIImage + Extensions.swift in Sources */,
 				BE572EB12400F99400B57246 /* MainView.swift in Sources */,
 				BE572EB32400F9A700B57246 /* CollectionsView.swift in Sources */,
 				0C6926EE24046827007CFE94 /* ResultsViewController.swift in Sources */,
@@ -336,6 +351,7 @@
 				BE572E832400724B00B57246 /* SceneDelegate.swift in Sources */,
 				0C6926F02404717B007CFE94 /* ResultsView.swift in Sources */,
 				BE572EC22400FB8800B57246 /* VenuesAPIClient.swift in Sources */,
+				0C53C1BE24071BDB00D4CBBC /* SavedVenue.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
