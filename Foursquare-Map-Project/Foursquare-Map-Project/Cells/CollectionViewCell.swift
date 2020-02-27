@@ -47,6 +47,9 @@ class CollectionViewCell: UICollectionViewCell {
         setupCategoryLabel()
     }
     
+    public func configureCell(category: Category){
+        categoryNameLabel.text = category.name
+    }
 
     
     private func setupRestaurantImage() {
