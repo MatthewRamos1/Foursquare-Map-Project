@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 
-struct SavedVenue {
+struct SavedVenue: Codable & Equatable {
     let name: String
     let categoryName: String
     let imageData: Data
