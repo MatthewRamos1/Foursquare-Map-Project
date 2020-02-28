@@ -31,26 +31,34 @@ class CollectionsViewController: UIViewController {
     
     lazy var containerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemBlue
+        view.backgroundColor = .systemBackground
+        view.layer.borderWidth = 2.0
+        view.layer.borderColor = UIColor.systemBlue.cgColor
         return view
     }()
     lazy var doneButton: UIButton = {
         let button = UIButton()
         button.setTitle("Create", for: .normal)
-        button.backgroundColor = .systemGray
+//        button.backgroundColor = .systemGray
+        button.setTitleColor(.systemBlue, for: .normal)
+//        button.layer.borderWidth = 1.0
+//        button.layer.borderColor = UIColor.systemBlue.cgColor
         button.addTarget(self, action: #selector(doneButtonPressed(sender:)), for: .touchUpInside)
         return button
     }()
     lazy var categoryTextField: UITextField = {
        let textField = UITextField()
-        textField.backgroundColor = .systemGray
-        textField.placeholder = "Enter the category name"
+//        textField.backgroundColor = .systemGray
+        textField.layer.borderWidth = 3.0
+        textField.layer.borderColor = UIColor.systemBlue.cgColor
+        textField.placeholder = "  Enter the category name"
         return textField
     }()
     lazy var instructionLabel: UILabel = {
        let label = UILabel()
         label.text = "Add to or Create Collection"
         label.font = UIFont.preferredFont(forTextStyle: .title1)
+        label.textColor = .systemBlue
         label.numberOfLines = 1
         label.textAlignment = NSTextAlignment.center
         return label
