@@ -12,23 +12,25 @@ import ImageKit
 import SafariServices
 
 class RestaurantDetailViewController: UIViewController {
-
+    
     private var detailView = RestaurantDetailView()
-//   private var dataPersistence: DataPersistence<Venues>
-    let toolBar = UIToolbar()
+    //   private var dataPersistence: DataPersistence<Venues>
+    //    let toolBar = UIToolbar()
     private var savedVenue: SavedVenue
+    
+    var items = [UIBarButtonItem]()
     
     init(_ savedVenue: SavedVenue) {
         self.savedVenue = savedVenue
         super.init(nibName: nil, bundle: nil)
     }
     
-//    init(dataPersistence: DataPersistence<Venues>, venue: Venues) {
-//        self.dataPersistence = dataPersistence
-//        self.venue = venue
-//        super.init(nibName: nil, bundle: nil)
-//        // self.dataPersistence.delegate = self
-//    }
+    //    init(dataPersistence: DataPersistence<Venues>, venue: Venues) {
+    //        self.dataPersistence = dataPersistence
+    //        self.venue = venue
+    //        super.init(nibName: nil, bundle: nil)
+    //        // self.dataPersistence.delegate = self
+    //    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -40,14 +42,27 @@ class RestaurantDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .systemBackground
         updateUI()
-
+        configureNavBar()
+        
+    }
+    
+    private func configureNavBar() {
+//        navigationItem.title = "Programmatic UI"
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus"), style: .plain, target: self, action: #selector(showCollections))
+    }
+    
+    @objc func showCollections() {
+         let collectionsVC = AddCollectionsController()
+        collectionsVC.modalPresentationStyle = UIModalPresentationStyle.popover
+        self.present(collectionsVC, animated: false, completion: nil)
+        
     }
     
     public func updateUI() {
         detailView.restuarantImage.image = UIImage(data: savedVenue.imageData)
-        
-   
+        detailView.titleLabel.text = savedVenue.categoryName
     }
-
+    
 }

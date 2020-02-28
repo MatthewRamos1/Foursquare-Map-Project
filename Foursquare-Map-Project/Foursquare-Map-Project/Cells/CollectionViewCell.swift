@@ -5,7 +5,6 @@
 //  Created by Lilia Yudina on 2/26/20.
 //  Copyright © 2020 Oscar Victoria Gonzalez . All rights reserved.
 //
-
 import UIKit
 
 
@@ -47,6 +46,9 @@ class CollectionViewCell: UICollectionViewCell {
         setupCategoryLabel()
     }
     
+    public func configureCell(category: Category){
+        categoryNameLabel.text = category.name
+    }
 
     
     private func setupRestaurantImage() {

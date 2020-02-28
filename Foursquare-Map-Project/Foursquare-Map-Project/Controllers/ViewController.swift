@@ -35,9 +35,15 @@ class ViewController: UIViewController {
         
     }
     
+    var annotations = [MKPointAnnotation]()
+//    var oldAnnotations = [MKPointAnnotation]()
     
     
+
     
+    var status:CLAuthorizationStatus?
+    
+    private var isShowingNewAnnotations = false
     
 
     override func loadView() {
@@ -54,6 +60,7 @@ class ViewController: UIViewController {
         configureSearchBar()
         loadMapView()
         mainView.cancelButton.addTarget(self, action: #selector(detailButtonWasPressed(_:)), for: .touchUpInside)
+        locationSession.delegate = self
     }
     
     func configureCollectionView() {
@@ -68,7 +75,20 @@ class ViewController: UIViewController {
             case .failure(let appError):
                 print("app Error \(appError)")
             case .success(let latLong):
-                self.latLong = "\(latLong.lat),\(latLong.long)"
+                //let userLocation = self.locationSession.locationManager.location?.coordinate
+//                let region  = MKCoordinateRegion(center: userLocation!, latitudinalMeters: 1600, longitudinalMeters: 1600)
+//                self.mainView.mapView.setRegion(region, animated: true)
+                
+                if let status = self.status{
+                    if status == .authorizedAlways || status == .authorizedWhenInUse {
+                        let userLocation = self.locationSession.locationManager.location?.coordinate
+                        
+                        self.latLong = "\(userLocation!.latitude),\(userLocation!.longitude)"
+                    } else {
+                        self.latLong = "\(latLong.lat),\(latLong.long)"
+                    }
+                }
+                
             }
         }
         fetchVenues(query: query, location: latLong)
@@ -99,19 +119,31 @@ class ViewController: UIViewController {
     
     func makeAnnotations() -> [MKPointAnnotation] {
         var annotations = [MKPointAnnotation]()
+        //var oldAnnotations = [MKPointAnnotation]()
+        
         for locations in venues {
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: locations.location.lat, longitude: locations.location.lng)
             annotation.title = locations.name
             annotations.append(annotation)
         }
+        // isShowingNewAnnotations = true
+        self.annotations = annotations
+        
+//        if annotations == self.annotations{
+//            isShowingNewAnnotations = true
+//        } else {
+//            annotations = self.oldAnnotations
+//            isShowingNewAnnotations = false
+//        }
+        print(self.annotations)
         return annotations
     }
     
     
     private func loadMapView() {
         let annotations = makeAnnotations()
-        mainView.mapView.addAnnotations(annotations)
+        //mainView.mapView.addAnnotations(annotations)
         mainView.mapView.showAnnotations(annotations, animated: true)
     }
     
@@ -151,6 +183,7 @@ extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         print("calloutAccesoryControllTaped")
     }
+    
 }
 
 extension ViewController: UISearchBarDelegate {
@@ -163,6 +196,13 @@ extension ViewController: UISearchBarDelegate {
             getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
             searchBar.resignFirstResponder()
         }
+    }
+    
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+        if isShowingNewAnnotations {
+            mapView.showAnnotations(annotations, animated: false)
+        }
+        isShowingNewAnnotations = false
     }
 }
 
@@ -228,4 +268,8 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
     }
 }
 
-
+extension ViewController: AuthorizationStatusDelegate{
+    func authorizationStatusChanged(status: CLAuthorizationStatus) {
+        self.status = status
+    }
+}

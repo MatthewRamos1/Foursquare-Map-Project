@@ -9,6 +9,10 @@
 import Foundation
 import CoreLocation
 
+protocol AuthorizationStatusDelegate : AnyObject{
+    func authorizationStatusChanged(status: CLAuthorizationStatus)
+}
+
 enum LocationFetchingError: Error {
     case error(Error)
     case noErrorMessage
@@ -76,6 +80,7 @@ class CoreLocationSession: NSObject {
     
     public var locationManager: CLLocationManager!
     
+    public weak var delegate: AuthorizationStatusDelegate?
     
     override init() {
         locationManager = CLLocationManager()
@@ -174,14 +179,19 @@ extension CoreLocationSession: CLLocationManagerDelegate {
         switch status {
         case .authorizedAlways:
             print("authorizedAlways")
+            delegate?.authorizationStatusChanged(status: status)
         case .authorizedWhenInUse:
             print("authorizedWhenInUse")
+            delegate?.authorizationStatusChanged(status: status)
         case .denied:
             print("denied")
+            delegate?.authorizationStatusChanged(status: status)
         case .notDetermined:
             print("notDetermined")
+            delegate?.authorizationStatusChanged(status: status)
         case .restricted:
             print("restricted")
+            delegate?.authorizationStatusChanged(status: status)
         default:
             break
         }
