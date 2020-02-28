@@ -13,7 +13,6 @@
 		0C53C1C12407219600D4CBBC /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53C1C02407219600D4CBBC /* UIImage + Extensions.swift */; };
 		0C6926EE24046827007CFE94 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926ED24046827007CFE94 /* ResultsViewController.swift */; };
 		0C6926F02404717B007CFE94 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926EF2404717B007CFE94 /* ResultsView.swift */; };
-		0CAC4E4924085907008F032F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAC4E4824085907008F032F /* Keys.swift */; };
 		A6DB6FF42406F49900A54C8B /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DB6FF32406F49900A54C8B /* RestaurantDetailView.swift */; };
 		A6DB6FF62407047C00A54C8B /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DB6FF52407047C00A54C8B /* RestaurantDetailViewController.swift */; };
 		A6DB6FFC2407211900A54C8B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DB6FFB2407211900A54C8B /* CollectionViewCell.swift */; };
@@ -29,11 +28,15 @@
 		BE572EB12400F99400B57246 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EB02400F99400B57246 /* MainView.swift */; };
 		BE572EB32400F9A700B57246 /* CollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EB22400F9A700B57246 /* CollectionsView.swift */; };
 		BE572EB52400F9F500B57246 /* LocationsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EB42400F9F500B57246 /* LocationsCell.swift */; };
-		BE572EB72400FA0600B57246 /* CollectionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EB62400FA0600B57246 /* CollectionsCell.swift */; };
 		BE572EBA2400FA9A00B57246 /* Venue.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EB92400FA9A00B57246 /* Venue.swift */; };
 		BE572EBD2400FAE400B57246 /* NetworkHelper in Frameworks */ = {isa = PBXBuildFile; productRef = BE572EBC2400FAE400B57246 /* NetworkHelper */; };
 		BE572EC02400FB1200B57246 /* ImageKit in Frameworks */ = {isa = PBXBuildFile; productRef = BE572EBF2400FB1200B57246 /* ImageKit */; };
 		BE572EC22400FB8800B57246 /* VenuesAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE572EC12400FB8800B57246 /* VenuesAPIClient.swift */; };
+		F162DDA5240884D7005F952E /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDA4240884D7005F952E /* Secrets.swift */; };
+		F162DDAC240890E2005F952E /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDAB240890E2005F952E /* Category.swift */; };
+		F162DDAE24089174005F952E /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDAD24089174005F952E /* UIViewController+Extensions.swift */; };
+		F162DDB92409813C005F952E /* AddCollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDB82409813C005F952E /* AddCollectionsView.swift */; };
+		F162DDBB24098156005F952E /* AddCollectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDBA24098156005F952E /* AddCollectionsController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,7 +56,6 @@
 		0C53C1C02407219600D4CBBC /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
 		0C6926ED24046827007CFE94 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		0C6926EF2404717B007CFE94 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
-		0CAC4E4824085907008F032F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Keys.swift; path = "Foursquare-Map-Project/Secrets/Keys.swift"; sourceTree = SOURCE_ROOT; };
 		A6DB6FF32406F49900A54C8B /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 		A6DB6FF52407047C00A54C8B /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		A6DB6FFB2407211900A54C8B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -73,9 +75,13 @@
 		BE572EB02400F99400B57246 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		BE572EB22400F9A700B57246 /* CollectionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsView.swift; sourceTree = "<group>"; };
 		BE572EB42400F9F500B57246 /* LocationsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsCell.swift; sourceTree = "<group>"; };
-		BE572EB62400FA0600B57246 /* CollectionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionsCell.swift; sourceTree = "<group>"; };
 		BE572EB92400FA9A00B57246 /* Venue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Venue.swift; sourceTree = "<group>"; };
 		BE572EC12400FB8800B57246 /* VenuesAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenuesAPIClient.swift; sourceTree = "<group>"; };
+		F162DDA4240884D7005F952E /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		F162DDAB240890E2005F952E /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		F162DDAD24089174005F952E /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
+		F162DDB82409813C005F952E /* AddCollectionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCollectionsView.swift; sourceTree = "<group>"; };
+		F162DDBA24098156005F952E /* AddCollectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCollectionsController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				0C53C1C02407219600D4CBBC /* UIImage + Extensions.swift */,
+				F162DDAD24089174005F952E /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -127,9 +134,9 @@
 		BE572E7F2400724B00B57246 /* Foursquare-Map-Project */ = {
 			isa = PBXGroup;
 			children = (
+				F162DDA3240884C7005F952E /* Secrets */,
 				BE572EA8240092DB00B57246 /* Supporting Files */,
 				BE572E942400912500B57246 /* Network Services */,
-				BE92BC772406F9D400AB982D /* Secrets */,
 				BE572EAB2400F52400B57246 /* Cells */,
 				BE572E972400914A00B57246 /* Models */,
 				BE572E962400913E00B57246 /* Views */,
@@ -151,6 +158,7 @@
 		BE572E952400913500B57246 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F162DDBA24098156005F952E /* AddCollectionsController.swift */,
 				BE572E842400724B00B57246 /* ViewController.swift */,
 				A6DB6FF52407047C00A54C8B /* RestaurantDetailViewController.swift */,
 				0C6926ED24046827007CFE94 /* ResultsViewController.swift */,
@@ -163,11 +171,11 @@
 		BE572E962400913E00B57246 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				F162DDB82409813C005F952E /* AddCollectionsView.swift */,
 				0C6926EF2404717B007CFE94 /* ResultsView.swift */,
 				BE572EAE2400F97A00B57246 /* EmptyView.swift */,
 				BE572EB02400F99400B57246 /* MainView.swift */,
 				BE572EB22400F9A700B57246 /* CollectionsView.swift */,
-				A6DB6FFB2407211900A54C8B /* CollectionViewCell.swift */,
 				A6DB6FF32406F49900A54C8B /* RestaurantDetailView.swift */,
 			);
 			path = Views;
@@ -178,6 +186,7 @@
 			children = (
 				BE572EB92400FA9A00B57246 /* Venue.swift */,
 				0C53C1BD24071BDB00D4CBBC /* SavedVenue.swift */,
+				F162DDAB240890E2005F952E /* Category.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -208,18 +217,18 @@
 			children = (
 				0C53C1B52406FA3900D4CBBC /* ResultCell.swift */,
 				BE572EB42400F9F500B57246 /* LocationsCell.swift */,
-				BE572EB62400FA0600B57246 /* CollectionsCell.swift */,
+				A6DB6FFB2407211900A54C8B /* CollectionViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
 		};
-		BE92BC772406F9D400AB982D /* Secrets */ = {
+		F162DDA3240884C7005F952E /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
-				0CAC4E4824085907008F032F /* Keys.swift */,
+				F162DDA4240884D7005F952E /* Secrets.swift */,
 			);
 			name = Secrets;
-			path = ../../../../.Trash/Secrets;
+			path = "../../../../Library/Mobile Documents/com~apple~CloudDocs/.Trash/Secrets";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -335,10 +344,9 @@
 				0C53C1C12407219600D4CBBC /* UIImage + Extensions.swift in Sources */,
 				BE572EB12400F99400B57246 /* MainView.swift in Sources */,
 				BE572EB32400F9A700B57246 /* CollectionsView.swift in Sources */,
-				0CAC4E4924085907008F032F /* Keys.swift in Sources */,
 				0C6926EE24046827007CFE94 /* ResultsViewController.swift in Sources */,
-				BE572EB72400FA0600B57246 /* CollectionsCell.swift in Sources */,
 				BE572EB52400F9F500B57246 /* LocationsCell.swift in Sources */,
+				F162DDAE24089174005F952E /* UIViewController+Extensions.swift in Sources */,
 				BE572EAA2400F50000B57246 /* TabBarController.swift in Sources */,
 				A6DB6FF62407047C00A54C8B /* RestaurantDetailViewController.swift in Sources */,
 				BE572EAD2400F67200B57246 /* CollectionsViewController.swift in Sources */,
@@ -348,10 +356,14 @@
 				0C53C1B62406FA3900D4CBBC /* ResultCell.swift in Sources */,
 				BE572E812400724B00B57246 /* AppDelegate.swift in Sources */,
 				BE572EAF2400F97A00B57246 /* EmptyView.swift in Sources */,
+				F162DDA5240884D7005F952E /* Secrets.swift in Sources */,
 				BE572E832400724B00B57246 /* SceneDelegate.swift in Sources */,
 				0C6926F02404717B007CFE94 /* ResultsView.swift in Sources */,
 				BE572EC22400FB8800B57246 /* VenuesAPIClient.swift in Sources */,
+				F162DDB92409813C005F952E /* AddCollectionsView.swift in Sources */,
+				F162DDBB24098156005F952E /* AddCollectionsController.swift in Sources */,
 				0C53C1BE24071BDB00D4CBBC /* SavedVenue.swift in Sources */,
+				F162DDAC240890E2005F952E /* Category.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
