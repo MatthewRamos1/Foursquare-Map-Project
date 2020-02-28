@@ -59,7 +59,6 @@ struct VenuesAPIClient {
                     let photos = try JSONDecoder().decode(Photos.self, from: data)
                     let picture = photos.response.photos.items.first
                     completion(.success(picture!))
-                    
                 } catch {
                     completion(.failure(.decodingError(error)))
                 }

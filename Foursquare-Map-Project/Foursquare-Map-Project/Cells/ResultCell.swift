@@ -14,5 +14,9 @@ class ResultCell: UITableViewCell {
     @IBOutlet weak var venueNameLabel: UILabel!
     @IBOutlet weak var categoryLabel: UILabel!
     
-    
+    func configureCell(venue: SavedVenue) {
+        venueNameLabel.text = venue.name
+        categoryLabel.text = "\(venue.categoryName) , \(venue.address)"
+        venueImageView.image = UIImage(data: venue.imageData)
+    }
 }

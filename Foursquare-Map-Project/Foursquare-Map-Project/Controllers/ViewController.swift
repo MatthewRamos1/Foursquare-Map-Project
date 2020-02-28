@@ -26,6 +26,8 @@ class ViewController: UIViewController {
         }
     }
     
+    var savedVenues = [SavedVenue]()
+    
     var latLong = "" {
         didSet {
             
@@ -36,18 +38,14 @@ class ViewController: UIViewController {
     var annotations = [MKPointAnnotation]()
 //    var oldAnnotations = [MKPointAnnotation]()
     
-    var item = [Items]() {
-        didSet {
-            DispatchQueue.main.async {
-                self.mainView.collectionView.reloadData()
-            }
-        }
-    }
+    
+
     
     var status:CLAuthorizationStatus?
     
     private var isShowingNewAnnotations = false
     
+
     override func loadView() {
         view = mainView
     }
@@ -152,7 +150,7 @@ class ViewController: UIViewController {
     
     @objc
     func detailButtonWasPressed(_ input: UIButton) {
-        let resultsVC = ResultsViewController()
+        let resultsVC = ResultsViewController(savedVenues)
         navigationController?.pushViewController(resultsVC, animated: true)
     }
     
@@ -236,9 +234,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
                     case .success(let image):
                         DispatchQueue.main.async {
                             cell.venueImage.image = image
-                        }
-                    }
-            }
+                            guard let savedVenue = createSavedVenue(venue: venue, image: image) else {
+                                fatalError("couldnt use saved venue at collection view")
+                            }
+                            self.savedVenues.append(savedVenue)
+                      }
+                 }
+             }
         }
     }
         return cell
