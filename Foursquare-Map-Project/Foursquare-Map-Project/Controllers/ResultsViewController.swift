@@ -25,10 +25,12 @@ class ResultsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Results"
+        view.backgroundColor = .systemBackground
         resultsView.tableView.dataSource = self
         resultsView.tableView.delegate = self
         resultsView.tableView.register(UINib(nibName: "ResultCell", bundle: nil), forCellReuseIdentifier: "resultCell")
-        
+
+
         
     }
     

@@ -48,13 +48,7 @@ class RestaurantDetailView: UIView {
       return textView
     } ()
      
-    public lazy var description2TextView: UILabel = {
-      let textView = UILabel()
-      textView.text = "Description"
-      textView.font = UIFont.systemFont(ofSize: 30, weight: .bold)
-      return textView
-    } ()
-     
+
     override init(frame: CGRect) {
       super.init(frame: UIScreen.main.bounds)
       commonInit()
@@ -70,8 +64,6 @@ class RestaurantDetailView: UIView {
     setupRestaurantImage()
     setupLocationLabel()
     setupDescription1TextView()
-    setupDescription2TextView()
-    //setupFavoriteButton()
     }
      
     private func setupFavoriteButton() {
@@ -126,13 +118,4 @@ class RestaurantDetailView: UIView {
       ])
     }
      
-    private func setupDescription2TextView() {
-      addSubview(description2TextView)
-      description2TextView.translatesAutoresizingMaskIntoConstraints = false
-      NSLayoutConstraint.activate([
-      description2TextView.topAnchor.constraint(equalTo: descriptionTextView.bottomAnchor, constant: 8),
-      description2TextView.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20),
-      description2TextView.leadingAnchor.constraint(equalTo: safeAreaLayoutGuide.leadingAnchor, constant: 20)
-      ])
-    }
 }
