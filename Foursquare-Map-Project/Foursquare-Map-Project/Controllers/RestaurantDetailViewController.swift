@@ -46,6 +46,7 @@ class RestaurantDetailViewController: UIViewController {
     
     public func updateUI() {
         detailView.restuarantImage.image = UIImage(data: savedVenue.imageData)
+        
    
     }
 

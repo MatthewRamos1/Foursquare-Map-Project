@@ -11,7 +11,17 @@ import UIKit
 class ResultsViewController: UIViewController {
     
     let resultsView = ResultsView()
-
+    var savedVenues: [SavedVenue]
+    
+    init(_ savedVenues: [SavedVenue]) {
+        self.savedVenues = savedVenues
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Results"
@@ -29,11 +39,16 @@ class ResultsViewController: UIViewController {
 
 extension ResultsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        savedVenues.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath)
+        print(savedVenues.count)
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "resultCell", for: indexPath) as? ResultCell else {
+            fatalError("Couldn't load resultCell")
+        }
+        let venue = savedVenues[indexPath.row]
+        cell.configureCell(venue: venue)
         return cell
     }
 }
