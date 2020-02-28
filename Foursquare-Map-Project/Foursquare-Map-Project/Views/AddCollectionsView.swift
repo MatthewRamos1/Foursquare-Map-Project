@@ -10,6 +10,7 @@ import UIKit
 
 class AddCollectionsView: UIView {
     
+    
     public lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
