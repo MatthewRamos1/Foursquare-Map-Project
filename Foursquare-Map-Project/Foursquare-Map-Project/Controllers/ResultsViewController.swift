@@ -57,5 +57,11 @@ extension ResultsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         UIScreen.main.bounds.height / 8
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let venue = savedVenues[indexPath.row]
+        let detailVC = RestaurantDetailViewController(venue)
+        navigationController?.pushViewController(detailVC, animated: true)
+    }
 }
 

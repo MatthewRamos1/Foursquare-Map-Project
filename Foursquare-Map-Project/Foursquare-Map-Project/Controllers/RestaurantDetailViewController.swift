@@ -62,7 +62,9 @@ class RestaurantDetailViewController: UIViewController {
     
     public func updateUI() {
         detailView.restuarantImage.image = UIImage(data: savedVenue.imageData)
-        detailView.titleLabel.text = savedVenue.categoryName
+        detailView.titleLabel.text = savedVenue.name
+        detailView.locationLabel.text = savedVenue.address
+        detailView.descriptionTextView.text = savedVenue.categoryName
     }
     
 }

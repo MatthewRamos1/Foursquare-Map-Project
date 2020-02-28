@@ -17,6 +17,8 @@ struct VenuesAPIClient {
         let endpointURLString =
         "https://api.foursquare.com/v2/venues/search?ll=\(latLong)&client_id=\(Chain.id)&client_secret=\(Chain.secret)&v=20200221&query=\(searchQuery)&limit=2"
         
+        print(endpointURLString)
+        
         guard let url = URL(string: endpointURLString) else {
             completion(.failure(.badURL(endpointURLString)))
             return
