@@ -13,7 +13,6 @@
 		0C53C1C12407219600D4CBBC /* UIImage + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53C1C02407219600D4CBBC /* UIImage + Extensions.swift */; };
 		0C6926EE24046827007CFE94 /* ResultsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926ED24046827007CFE94 /* ResultsViewController.swift */; };
 		0C6926F02404717B007CFE94 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C6926EF2404717B007CFE94 /* ResultsView.swift */; };
-		0CAC4E592409A51A008F032F /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CAC4E582409A51A008F032F /* Keys.swift */; };
 		A6DB6FF42406F49900A54C8B /* RestaurantDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DB6FF32406F49900A54C8B /* RestaurantDetailView.swift */; };
 		A6DB6FF62407047C00A54C8B /* RestaurantDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DB6FF52407047C00A54C8B /* RestaurantDetailViewController.swift */; };
 		A6DB6FFC2407211900A54C8B /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6DB6FFB2407211900A54C8B /* CollectionViewCell.swift */; };
@@ -37,6 +36,10 @@
 		F162DDAE24089174005F952E /* UIViewController+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDAD24089174005F952E /* UIViewController+Extensions.swift */; };
 		F162DDB92409813C005F952E /* AddCollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDB82409813C005F952E /* AddCollectionsView.swift */; };
 		F162DDBB24098156005F952E /* AddCollectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDBA24098156005F952E /* AddCollectionsController.swift */; };
+		F162DDBF2409DC49005F952E /* VenueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDBE2409DC49005F952E /* VenueTableViewController.swift */; };
+		F162DDC12409DC6D005F952E /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDC02409DC6D005F952E /* Secrets.swift */; };
+		F162DDC32409DCCF005F952E /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDC22409DCCF005F952E /* TableView.swift */; };
+		F162DDC52409DD0B005F952E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDC42409DD0B005F952E /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,7 +59,6 @@
 		0C53C1C02407219600D4CBBC /* UIImage + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage + Extensions.swift"; sourceTree = "<group>"; };
 		0C6926ED24046827007CFE94 /* ResultsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsViewController.swift; sourceTree = "<group>"; };
 		0C6926EF2404717B007CFE94 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
-		0CAC4E582409A51A008F032F /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		A6DB6FF32406F49900A54C8B /* RestaurantDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailView.swift; sourceTree = "<group>"; };
 		A6DB6FF52407047C00A54C8B /* RestaurantDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantDetailViewController.swift; sourceTree = "<group>"; };
 		A6DB6FFB2407211900A54C8B /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
@@ -82,6 +84,10 @@
 		F162DDAD24089174005F952E /* UIViewController+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extensions.swift"; sourceTree = "<group>"; };
 		F162DDB82409813C005F952E /* AddCollectionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCollectionsView.swift; sourceTree = "<group>"; };
 		F162DDBA24098156005F952E /* AddCollectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCollectionsController.swift; sourceTree = "<group>"; };
+		F162DDBE2409DC49005F952E /* VenueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueTableViewController.swift; sourceTree = "<group>"; };
+		F162DDC02409DC6D005F952E /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
+		F162DDC22409DCCF005F952E /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
+		F162DDC42409DD0B005F952E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +122,7 @@
 		0CAC4E572409A4F1008F032F /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
-				0CAC4E582409A51A008F032F /* Keys.swift */,
+				F162DDC02409DC6D005F952E /* Secrets.swift */,
 			);
 			path = Secrets;
 			sourceTree = "<group>";
@@ -172,6 +178,7 @@
 				0C6926ED24046827007CFE94 /* ResultsViewController.swift */,
 				BE572EAC2400F67200B57246 /* CollectionsViewController.swift */,
 				BE572EA92400F50000B57246 /* TabBarController.swift */,
+				F162DDBE2409DC49005F952E /* VenueTableViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -185,6 +192,7 @@
 				BE572EB02400F99400B57246 /* MainView.swift */,
 				BE572EB22400F9A700B57246 /* CollectionsView.swift */,
 				A6DB6FF32406F49900A54C8B /* RestaurantDetailView.swift */,
+				F162DDC22409DCCF005F952E /* TableView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -226,6 +234,7 @@
 				0C53C1B52406FA3900D4CBBC /* ResultCell.swift */,
 				BE572EB42400F9F500B57246 /* LocationsCell.swift */,
 				A6DB6FFB2407211900A54C8B /* CollectionViewCell.swift */,
+				F162DDC42409DD0B005F952E /* TableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -340,7 +349,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				BE572E852400724B00B57246 /* ViewController.swift in Sources */,
-				0CAC4E592409A51A008F032F /* Keys.swift in Sources */,
 				0C53C1C12407219600D4CBBC /* UIImage + Extensions.swift in Sources */,
 				BE572EB12400F99400B57246 /* MainView.swift in Sources */,
 				BE572EB32400F9A700B57246 /* CollectionsView.swift in Sources */,
@@ -352,13 +360,17 @@
 				BE572EAD2400F67200B57246 /* CollectionsViewController.swift in Sources */,
 				A6DB6FFC2407211900A54C8B /* CollectionViewCell.swift in Sources */,
 				A6DB6FF42406F49900A54C8B /* RestaurantDetailView.swift in Sources */,
+				F162DDC52409DD0B005F952E /* TableViewCell.swift in Sources */,
 				BE572EBA2400FA9A00B57246 /* Venue.swift in Sources */,
 				0C53C1B62406FA3900D4CBBC /* ResultCell.swift in Sources */,
+				F162DDBF2409DC49005F952E /* VenueTableViewController.swift in Sources */,
 				BE572E812400724B00B57246 /* AppDelegate.swift in Sources */,
+				F162DDC12409DC6D005F952E /* Secrets.swift in Sources */,
 				BE572EAF2400F97A00B57246 /* EmptyView.swift in Sources */,
 				BE572E832400724B00B57246 /* SceneDelegate.swift in Sources */,
 				0C6926F02404717B007CFE94 /* ResultsView.swift in Sources */,
 				BE572EC22400FB8800B57246 /* VenuesAPIClient.swift in Sources */,
+				F162DDC32409DCCF005F952E /* TableView.swift in Sources */,
 				F162DDB92409813C005F952E /* AddCollectionsView.swift in Sources */,
 				F162DDBB24098156005F952E /* AddCollectionsController.swift in Sources */,
 				0C53C1BE24071BDB00D4CBBC /* SavedVenue.swift in Sources */,

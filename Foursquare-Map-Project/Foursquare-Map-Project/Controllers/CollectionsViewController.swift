@@ -203,6 +203,12 @@ extension CollectionsViewController: UICollectionViewDelegateFlowLayout {
 //      let itemHeight: CGFloat = maxSize.height * 0.30
       return CGSize(width: itemWidth, height: itemWidth)
     }
+    
+        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+            let tableViewController = VenueTableViewController()
+    //        let category = categories[indexPath.row]
+            navigationController?.pushViewController(tableViewController, animated: true)
+        }
 }
 
 extension CollectionsViewController: UITextFieldDelegate {
