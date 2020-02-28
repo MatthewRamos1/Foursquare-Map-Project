@@ -79,15 +79,17 @@ class ViewController: UIViewController {
 //                let region  = MKCoordinateRegion(center: userLocation!, latitudinalMeters: 1600, longitudinalMeters: 1600)
 //                self.mainView.mapView.setRegion(region, animated: true)
                 
-                if let status = self.status{
-                    if status == .authorizedAlways || status == .authorizedWhenInUse {
-                        let userLocation = self.locationSession.locationManager.location?.coordinate
-                        
-                        self.latLong = "\(userLocation!.latitude),\(userLocation!.longitude)"
-                    } else {
-                        self.latLong = "\(latLong.lat),\(latLong.long)"
-                    }
-                }
+//                if let status = self.status{
+//                    if status == .authorizedAlways || status == .authorizedWhenInUse || status == .notDetermined {
+//                        let userLocation = self.locationSession.locationManager.location?.coordinate
+//
+//                        self.latLong = "\(userLocation!.latitude),\(userLocation!.longitude)"
+//                    } else {
+//                        self.latLong = "\(latLong.lat),\(latLong.long)"
+//                    }
+//                }
+                self.latLong = "\(latLong.lat),\(latLong.long)"
+
                 
             }
         }
