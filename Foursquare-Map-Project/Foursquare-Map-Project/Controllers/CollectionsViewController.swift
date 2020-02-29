@@ -17,7 +17,7 @@ class CollectionsViewController: UIViewController {
     
     private let collectionView = CollectionsView()
     public var category: Category?
-    public var categories = [Category](){
+    public var categories = [Category]() {
         didSet{
             self.collectionView.collectionView.reloadData()
         }
