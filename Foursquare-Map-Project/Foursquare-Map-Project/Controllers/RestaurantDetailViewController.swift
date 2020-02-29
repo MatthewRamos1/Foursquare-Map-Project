@@ -14,14 +14,15 @@ import SafariServices
 class RestaurantDetailViewController: UIViewController {
     
     private var detailView = RestaurantDetailView()
-    //   private var dataPersistence: DataPersistence<Venues>
+    private var dataPersistence: DataPersistence<[Category]>
     //    let toolBar = UIToolbar()
     private var savedVenue: SavedVenue
     
     var items = [UIBarButtonItem]()
     
-    init(_ savedVenue: SavedVenue) {
+    init(_ savedVenue: SavedVenue, _ dataPersistence: DataPersistence<[Category]>) {
         self.savedVenue = savedVenue
+        self.dataPersistence = dataPersistence
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,7 +55,7 @@ class RestaurantDetailViewController: UIViewController {
     }
     
     @objc func showCollections() {
-         let collectionsVC = AddCollectionsController()
+         let collectionsVC = AddCollectionsController(savedVenue, dataPersistence)
         collectionsVC.modalPresentationStyle = UIModalPresentationStyle.popover
         self.present(collectionsVC, animated: false, completion: nil)
         

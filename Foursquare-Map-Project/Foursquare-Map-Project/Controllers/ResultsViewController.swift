@@ -7,14 +7,17 @@
 //
 
 import UIKit
+import DataPersistence
 
 class ResultsViewController: UIViewController {
     
     let resultsView = ResultsView()
     var savedVenues: [SavedVenue]
+    var dataPersistence:DataPersistence<[Category]>
     
-    init(_ savedVenues: [SavedVenue]) {
+    init(_ savedVenues: [SavedVenue], _ dataPersistence: DataPersistence<[Category]>) {
         self.savedVenues = savedVenues
+        self.dataPersistence = dataPersistence
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -62,7 +65,7 @@ extension ResultsViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let venue = savedVenues[indexPath.row]
-        let detailVC = RestaurantDetailViewController(venue)
+        let detailVC = RestaurantDetailViewController(venue, dataPersistence)
         navigationController?.pushViewController(detailVC, animated: true)
     }
 }
