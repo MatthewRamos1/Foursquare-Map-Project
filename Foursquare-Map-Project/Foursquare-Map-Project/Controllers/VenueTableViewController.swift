@@ -7,12 +7,25 @@
 //
 
 import UIKit
+import DataPersistence
 
 class VenueTableViewController: UIViewController {
+    
+    var dataPersistence:DataPersistence<Category>
 
     let venueTableView = TableView()
-    var venue = [Venue]()
-
+    var savedVenue = [SavedVenue]()
+    
+    init(_ savedVenue: [SavedVenue], _ dataPersistence: DataPersistence<Category>) {
+        self.savedVenue = savedVenue
+        self.dataPersistence = dataPersistence
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         view = venueTableView
     }
@@ -30,7 +43,7 @@ class VenueTableViewController: UIViewController {
 
 extension VenueTableViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return savedVenue.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as? TableViewCell else {

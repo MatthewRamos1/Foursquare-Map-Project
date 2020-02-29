@@ -28,6 +28,7 @@ class CollectionsViewController: UIViewController {
     private var containerViewTopAnchor: NSLayoutConstraint!
      private var newContainerViewTopAnchor: NSLayoutConstraint!
     
+    private var dataPersistence: DataPersistence<Category>
     
     lazy var containerView: UIView = {
         let view = UIView()
@@ -64,6 +65,16 @@ class CollectionsViewController: UIViewController {
         return label
     }()
     
+    init(_ dataPersistence: DataPersistence<Category>) {
+        self.dataPersistence = dataPersistence
+        super.init(nibName: nil, bundle: nil)
+        self.dataPersistence.delegate = self
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
       view = collectionView
     }
@@ -95,6 +106,14 @@ class CollectionsViewController: UIViewController {
         }
     }
     
+    private func loadCategoriesFromDataPersistence(){
+        do {
+            categories = try dataPersistence.loadItems()
+        } catch{
+            showAlert(title: "Loading error", message: "Error: \(error)")
+        }
+    }
+    
     @objc func plusButtonPressed(sender:UIBarButtonItem){
         containerViewTopAnchor.isActive = false
         newContainerViewTopAnchor.isActive = true
@@ -114,7 +133,7 @@ class CollectionsViewController: UIViewController {
 
         let imageData = UIImage(systemName: "photo")?.pngData()
         
-        let category = Category(name: categoryTextField.text ?? "Category Name", image: imageData!)
+        let category = Category(name: categoryTextField.text ?? "Category Name", image: imageData!, savedVenue: [SavedVenue]())
         showAlert(title: nil, message: "Do you want to add a new category?") { (alertaction) in
             if alertaction.style == .default{
                 self.viewPopsDown()
@@ -205,7 +224,17 @@ extension CollectionsViewController: UICollectionViewDelegateFlowLayout {
     }
     
         func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            let tableViewController = VenueTableViewController()
+            
+            var savedVenue = [SavedVenue]()
+            
+//            do{
+//                savedVenue = try dataPersistence.loadItems()[indexPath.row].savedVenue!
+//            } catch{
+//                showAlert(title: "LOAD ERROR", message: "Failed to get saved items")
+//            }
+            
+            
+            let tableViewController = VenueTableViewController(savedVenue, dataPersistence)
     //        let category = categories[indexPath.row]
             navigationController?.pushViewController(tableViewController, animated: true)
         }
@@ -219,4 +248,16 @@ extension CollectionsViewController: UITextFieldDelegate {
     
     return true
   }
+}
+
+extension CollectionsViewController: DataPersistenceDelegate{
+    func didSaveItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+        loadCategoriesFromDataPersistence()
+    }
+    
+    func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
+         
+    }
+    
+    
 }

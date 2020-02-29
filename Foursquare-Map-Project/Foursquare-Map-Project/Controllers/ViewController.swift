@@ -40,13 +40,13 @@ class ViewController: UIViewController {
 //    var oldAnnotations = [MKPointAnnotation]()
     
     
-    var dataPersistence: DataPersistence<[Category]>
+    var dataPersistence: DataPersistence<Category>
     
     var status:CLAuthorizationStatus?
     
     private var isShowingNewAnnotations = false
     
-    init(_ dataPersistence: DataPersistence<[Category]>) {
+    init(_ dataPersistence: DataPersistence<Category>) {
         self.dataPersistence = dataPersistence
         super.init(nibName: nil, bundle: nil)
     }

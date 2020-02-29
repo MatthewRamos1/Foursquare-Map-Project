@@ -14,6 +14,6 @@ struct Category: Codable & Equatable {
     var name: String
     var image: Data
     var tipDescription: String?
-    var savedVenue:SavedVenue?
+    var savedVenue:[SavedVenue]?
     
 }

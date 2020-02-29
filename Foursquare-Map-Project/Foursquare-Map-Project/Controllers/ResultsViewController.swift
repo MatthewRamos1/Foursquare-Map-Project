@@ -13,9 +13,9 @@ class ResultsViewController: UIViewController {
     
     let resultsView = ResultsView()
     var savedVenues: [SavedVenue]
-    var dataPersistence:DataPersistence<[Category]>
+    var dataPersistence:DataPersistence<Category>
     
-    init(_ savedVenues: [SavedVenue], _ dataPersistence: DataPersistence<[Category]>) {
+    init(_ savedVenues: [SavedVenue], _ dataPersistence: DataPersistence<Category>) {
         self.savedVenues = savedVenues
         self.dataPersistence = dataPersistence
         super.init(nibName: nil, bundle: nil)

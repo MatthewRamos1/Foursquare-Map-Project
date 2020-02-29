@@ -14,13 +14,13 @@ import SafariServices
 class RestaurantDetailViewController: UIViewController {
     
     private var detailView = RestaurantDetailView()
-    private var dataPersistence: DataPersistence<[Category]>
+    private var dataPersistence: DataPersistence<Category>
     //    let toolBar = UIToolbar()
     private var savedVenue: SavedVenue
     
     var items = [UIBarButtonItem]()
     
-    init(_ savedVenue: SavedVenue, _ dataPersistence: DataPersistence<[Category]>) {
+    init(_ savedVenue: SavedVenue, _ dataPersistence: DataPersistence<Category>) {
         self.savedVenue = savedVenue
         self.dataPersistence = dataPersistence
         super.init(nibName: nil, bundle: nil)
