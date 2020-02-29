@@ -20,9 +20,10 @@ class ViewController: UIViewController {
     
     var venues = [Venue]() {
         didSet {
-            loadMapView()
             DispatchQueue.main.async {
                 self.mainView.collectionView.reloadData()
+                self.loadMapView()
+
             }
         }
     }
@@ -35,6 +36,8 @@ class ViewController: UIViewController {
         }
         
     }
+    
+    
     
     var annotations = [MKPointAnnotation]()
 //    var oldAnnotations = [MKPointAnnotation]()
@@ -97,12 +100,13 @@ class ViewController: UIViewController {
 //                        self.latLong = "\(latLong.lat),\(latLong.long)"
 //                    }
 //                }
-                self.latLong = "\(latLong.lat),\(latLong.long)"
-
                 
+//                self.latLong = "\(latLong.lat),\(latLong.long)"
+
+                self.fetchVenues(query: query, location: "\(latLong.lat),\(latLong.long)")
+
             }
         }
-        fetchVenues(query: query, location: latLong)
     }
     
     private func configureSearchBar() {
@@ -131,14 +135,13 @@ class ViewController: UIViewController {
     func makeAnnotations() -> [MKPointAnnotation] {
         var annotations = [MKPointAnnotation]()
         //var oldAnnotations = [MKPointAnnotation]()
-        
         for locations in venues {
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: locations.location.lat, longitude: locations.location.lng)
             annotation.title = locations.name
             annotations.append(annotation)
         }
-        // isShowingNewAnnotations = true
+         isShowingNewAnnotations = true
         self.annotations = annotations
         
 //        if annotations == self.annotations{
@@ -154,8 +157,11 @@ class ViewController: UIViewController {
     
     private func loadMapView() {
         let annotations = makeAnnotations()
-        //mainView.mapView.addAnnotations(annotations)
-        mainView.mapView.showAnnotations(annotations, animated: true)
+        DispatchQueue.main.async {
+            self.mainView.mapView.removeAnnotations(self.mainView.mapView.annotations)
+            self.mainView.mapView.showAnnotations(self.annotations, animated: true)
+            self.mainView.mapView.addAnnotations(annotations)
+        }
     }
     
     
@@ -194,27 +200,40 @@ extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         print("calloutAccesoryControllTaped")
     }
-    
+    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
+          if isShowingNewAnnotations {
+              DispatchQueue.main.async {
+                  mapView.showAnnotations(self.annotations, animated: false)
+              }
+          }
+          isShowingNewAnnotations = false
+      }
 }
 
 extension ViewController: UISearchBarDelegate {
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         
-        if searchBar == mainView.searchBar {
-            getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
-            searchBar.resignFirstResponder()
-        } else if searchBar == mainView.locationSearchBar {
-            getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
-            searchBar.resignFirstResponder()
-        }
+        
+        
+        getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
+        
+        resignFirstResponder()
+//        if searchBar == mainView.searchBar {
+//            getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
+//            searchBar.resignFirstResponder()
+//        } else if searchBar == mainView.locationSearchBar {
+//            getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
+//            searchBar.resignFirstResponder()
+//        }
     }
     
-    func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-        if isShowingNewAnnotations {
-            mapView.showAnnotations(annotations, animated: false)
-        }
-        isShowingNewAnnotations = false
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.text = ""
     }
+    
+   
+    
+  
 }
 
 

@@ -9,15 +9,15 @@ import UIKit
 import DataPersistence
 
 enum CategoryState {
-  case newCategory
-  case existingCategory
+    case newCategory
+    case existingCategory
 }
 
 class CollectionsViewController: UIViewController {
     
     private let collectionView = CollectionsView()
     public var category: Category?
-    public var categories = [Category](){
+    public var categories = [Category]() {
         didSet{
             self.collectionView.collectionView.reloadData()
         }
@@ -26,7 +26,7 @@ class CollectionsViewController: UIViewController {
     
     private var containerViewHeight:CGFloat!
     private var containerViewTopAnchor: NSLayoutConstraint!
-     private var newContainerViewTopAnchor: NSLayoutConstraint!
+    private var newContainerViewTopAnchor: NSLayoutConstraint!
     
     private var dataPersistence: DataPersistence<Category>
     
@@ -37,26 +37,35 @@ class CollectionsViewController: UIViewController {
         view.layer.borderColor = UIColor.systemBlue.cgColor
         return view
     }()
+    
+    lazy var cancelButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Cancel", for: .normal)
+        button.setTitleColor(.systemBlue, for: .normal)
+        button.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
+        return button
+    }()
+    
     lazy var doneButton: UIButton = {
         let button = UIButton()
         button.setTitle("Create", for: .normal)
-//        button.backgroundColor = .systemGray
+        //        button.backgroundColor = .systemGray
         button.setTitleColor(.systemBlue, for: .normal)
-//        button.layer.borderWidth = 1.0
-//        button.layer.borderColor = UIColor.systemBlue.cgColor
+        //        button.layer.borderWidth = 1.0
+        //        button.layer.borderColor = UIColor.systemBlue.cgColor
         button.addTarget(self, action: #selector(doneButtonPressed(sender:)), for: .touchUpInside)
         return button
     }()
     lazy var categoryTextField: UITextField = {
-       let textField = UITextField()
-//        textField.backgroundColor = .systemGray
+        let textField = UITextField()
+        //        textField.backgroundColor = .systemGray
         textField.layer.borderWidth = 3.0
         textField.layer.borderColor = UIColor.systemBlue.cgColor
         textField.placeholder = "  Enter the category name"
         return textField
     }()
     lazy var instructionLabel: UILabel = {
-       let label = UILabel()
+        let label = UILabel()
         label.text = "Add to or Create Collection"
         label.font = UIFont.preferredFont(forTextStyle: .title1)
         label.textColor = .systemBlue
@@ -76,9 +85,9 @@ class CollectionsViewController: UIViewController {
     }
     
     override func loadView() {
-      view = collectionView
+        view = collectionView
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         containerViewHeight = view.frame.height - 195
@@ -87,9 +96,10 @@ class CollectionsViewController: UIViewController {
         setupInstructionLabel()
         setupCategoryTextFieldConstraints()
         setupContainerViewConstraints()
+        setupCancelButtonConstraints()
         setupDoneButtonConsgtraints()
-            collectionView.collectionView.dataSource = self
-            collectionView.collectionView.delegate = self
+        collectionView.collectionView.dataSource = self
+        collectionView.collectionView.delegate = self
         categoryTextField.delegate = self
         collectionView.collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionsCell")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(plusButtonPressed))
@@ -130,7 +140,7 @@ class CollectionsViewController: UIViewController {
     }
     
     @objc func doneButtonPressed(sender:UIButton) {
-
+        
         let imageData = UIImage(systemName: "photo")?.pngData()
         
         let category = Category(name: categoryTextField.text ?? "Category Name", image: imageData!, savedVenue: [SavedVenue]())
@@ -146,6 +156,12 @@ class CollectionsViewController: UIViewController {
         //todo: we have to check to see if the category has been saved
         //categories.append(category)
     }
+    
+    @objc func cancelButtonPressed() {
+        viewPopsDown()
+    }
+    
+    
     private func setupInstructionLabel() {
         containerView.addSubview(instructionLabel)
         instructionLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -175,8 +191,21 @@ class CollectionsViewController: UIViewController {
             doneButton.heightAnchor.constraint(equalTo: self.containerView.heightAnchor, multiplier: 0.07),
             doneButton.widthAnchor.constraint(equalTo: self.containerView.widthAnchor, multiplier: 0.15)
         ])
-
+        
     }
+    
+    private func setupCancelButtonConstraints() {
+        containerView.addSubview(cancelButton)
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            cancelButton.topAnchor.constraint(equalTo: self.containerView.topAnchor, constant: 20),
+            cancelButton.leadingAnchor.constraint(equalTo: self.containerView.leadingAnchor, constant: 20),
+            cancelButton.heightAnchor.constraint(equalTo: self.containerView.heightAnchor, multiplier: 0.07),
+            cancelButton.widthAnchor.constraint(equalTo: self.containerView.widthAnchor, multiplier: 0.15)
+        ])
+    }
+    
+    
     private func setupContainerViewConstraints() {
         view.addSubview(containerView)
         containerView.translatesAutoresizingMaskIntoConstraints = false
@@ -206,7 +235,7 @@ extension CollectionsViewController: UICollectionViewDataSource {
         
         let category = categories[indexPath.row]
         cell.configureCell(category: category)
-       
+        
         return cell
     }
 }
@@ -214,16 +243,16 @@ extension CollectionsViewController: UICollectionViewDataSource {
 extension CollectionsViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-      let maxSize: CGSize = UIScreen.main.bounds.size
+        let maxSize: CGSize = UIScreen.main.bounds.size
         let itemSpace: CGFloat = 10
         let numberOfItems: CGFloat = 2
         let totalSpacing: CGFloat = numberOfItems * itemSpace
         let itemWidth: CGFloat = (maxSize.width - 20 - totalSpacing) / numberOfItems
-//      let itemHeight: CGFloat = maxSize.height * 0.30
-      return CGSize(width: itemWidth, height: itemWidth)
+        //      let itemHeight: CGFloat = maxSize.height * 0.30
+        return CGSize(width: itemWidth, height: itemWidth)
     }
     
-        func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
             var savedVenue = [SavedVenue]()
             
@@ -237,17 +266,17 @@ extension CollectionsViewController: UICollectionViewDelegateFlowLayout {
             let tableViewController = VenueTableViewController(savedVenue, dataPersistence)
     //        let category = categories[indexPath.row]
             navigationController?.pushViewController(tableViewController, animated: true)
-        }
+      }
 }
 
 extension CollectionsViewController: UITextFieldDelegate {
-  func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-    textField.resignFirstResponder()
-   
-    category?.name = textField.text ?? "no event name"
-    
-    return true
-  }
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        
+        category?.name = textField.text ?? "no event name"
+        
+        return true
+    }
 }
 
 extension CollectionsViewController: DataPersistenceDelegate{

@@ -11,19 +11,11 @@ import UIKit
 class RestaurantDetailView: UIView {
     
     
-    public lazy var favoriteButton: UIButton = {
-      let button = UIButton()
-      button.setImage(UIImage(systemName: "heart"), for: .normal)
-      button.tintColor = .black
-      return button
-      
-    }()
-     
     public lazy var titleLabel: UILabel = {
       let label = UILabel()
       label.text = "Title"
       label.numberOfLines = 3
-      label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+      label.font = UIFont.systemFont(ofSize: 44, weight: .bold)
       return label
     } ()
      
@@ -37,14 +29,14 @@ class RestaurantDetailView: UIView {
       let label = UILabel()
       label.text = "Address"
       label.numberOfLines = 4
-      label.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+      label.font = UIFont.systemFont(ofSize: 22, weight: .light)
       return label
-    } ()
+    }()
      
     public lazy var descriptionTextView: UILabel = {
       let textView = UILabel()
       textView.text = "Description"
-      textView.font = UIFont.systemFont(ofSize: 30, weight: .bold)
+        textView.font = UIFont.systemFont(ofSize: 22, weight: .light)
       return textView
     } ()
      
@@ -66,16 +58,7 @@ class RestaurantDetailView: UIView {
     setupDescription1TextView()
     }
      
-    private func setupFavoriteButton() {
-      addSubview(favoriteButton)
-      favoriteButton.translatesAutoresizingMaskIntoConstraints = false
-      NSLayoutConstraint.activate([
-        favoriteButton.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor, constant: 20),
-        favoriteButton.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-        favoriteButton.heightAnchor.constraint(equalToConstant: 20),
-        favoriteButton.widthAnchor.constraint(equalToConstant: 20)
-      ])
-    }
+  
      
     private func setupTitleLabel() {
       addSubview(titleLabel)
