@@ -10,6 +10,7 @@ import UIKit
 import ImageKit
 import MapKit
 import NetworkHelper
+import DataPersistence
 
 class ViewController: UIViewController {
     
@@ -42,13 +43,21 @@ class ViewController: UIViewController {
 //    var oldAnnotations = [MKPointAnnotation]()
     
     
-
+    var dataPersistence: DataPersistence<Category>
     
     var status:CLAuthorizationStatus?
     
     private var isShowingNewAnnotations = false
     
-
+    init(_ dataPersistence: DataPersistence<Category>) {
+        self.dataPersistence = dataPersistence
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func loadView() {
         view = mainView
     }
@@ -158,7 +167,7 @@ class ViewController: UIViewController {
     
     @objc
     func detailButtonWasPressed(_ input: UIButton) {
-        let resultsVC = ResultsViewController(savedVenues)
+        let resultsVC = ResultsViewController(savedVenues, dataPersistence)
         navigationController?.pushViewController(resultsVC, animated: true)
     }
     
@@ -280,7 +289,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         guard let savedVenue = createSavedVenue(venue: venue, image: image) else {
             fatalError("couldn't use savedImage at didSelect")
         }
-        let detailVC = RestaurantDetailViewController(savedVenue)
+        let detailVC = RestaurantDetailViewController(savedVenue, dataPersistence)
         navigationController?.pushViewController(detailVC, animated: true)
     }
     

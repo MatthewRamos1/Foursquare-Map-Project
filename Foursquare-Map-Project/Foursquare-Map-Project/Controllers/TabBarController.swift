@@ -7,18 +7,21 @@
 //
 
 import UIKit
+import DataPersistence
 
 class TabBarController: UITabBarController {
     
+    var dataPersistence =  DataPersistence<Category>(filename: "SavedCategories")
+    
     private lazy var searchNavController: ViewController = {
         
-        let navC = ViewController()
+        let navC = ViewController(dataPersistence)
         navC.tabBarItem = UITabBarItem(title: "Search", image: UIImage(systemName: "magnifyingglass"), tag: 1)
         return navC
     }()
     
     private lazy var collectionsNavController: CollectionsViewController = {
-        let navC = CollectionsViewController()
+        let navC = CollectionsViewController(dataPersistence)
         navC.tabBarItem = UITabBarItem(title: "Collections", image: UIImage(systemName: "folder"), tag: 1)
         return navC
     }()

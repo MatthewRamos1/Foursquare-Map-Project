@@ -46,6 +46,8 @@ class CollectionViewCell: UICollectionViewCell {
         setupCategoryLabel()
     }
     
+    
+    //TODO: configureCell has to be refactore to configure the cell based on whether or not it was loaded from the collectionsViewController or the AddCollectionsController
     public func configureCell(category: Category){
         categoryNameLabel.text = category.name
     }
