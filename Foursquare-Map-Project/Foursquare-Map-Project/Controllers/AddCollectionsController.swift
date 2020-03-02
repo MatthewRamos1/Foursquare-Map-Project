@@ -42,6 +42,7 @@ class AddCollectionsController: UIViewController {
         addCollections.collectionView.delegate = self
         addCollections.collectionView.dataSource = self
         loadCategories()
+        configureNavBar()
     }
     
     func loadCategories(){
@@ -50,6 +51,14 @@ class AddCollectionsController: UIViewController {
         } catch {
             showAlert(title: "Loading Error", message: "Error: \(error)")
         }
+    }
+    
+    func configureNavBar() {
+        addCollections.cancelButton.addTarget(self, action: #selector(cancelButtonPressed), for: .touchUpInside)
+    }
+    
+    @objc func cancelButtonPressed() {
+        dismiss(animated: true, completion: nil)
     }
 
 }

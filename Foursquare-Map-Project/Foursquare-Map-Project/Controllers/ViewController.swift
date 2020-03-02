@@ -117,6 +117,7 @@ class ViewController: UIViewController {
     private func configureMapView() {
         mainView.mapView.showsUserLocation = true
         mainView.mapView.delegate = self
+    
     }
     
     private func fetchVenues(query: String, location: String) {
@@ -129,7 +130,6 @@ class ViewController: UIViewController {
                 print(venues)
             }
         }
-        
     }
     
     func makeAnnotations() -> [MKPointAnnotation] {
@@ -141,15 +141,15 @@ class ViewController: UIViewController {
             annotation.title = locations.name
             annotations.append(annotation)
         }
-         isShowingNewAnnotations = true
+        isShowingNewAnnotations = true
         self.annotations = annotations
         
-//        if annotations == self.annotations{
-//            isShowingNewAnnotations = true
-//        } else {
-//            annotations = self.oldAnnotations
-//            isShowingNewAnnotations = false
-//        }
+        //        if annotations == self.annotations{
+        //            isShowingNewAnnotations = true
+        //        } else {
+        //            annotations = self.oldAnnotations
+        //            isShowingNewAnnotations = false
+        //        }
         print(self.annotations)
         return annotations
     }
@@ -177,19 +177,32 @@ class ViewController: UIViewController {
 
 extension ViewController: MKMapViewDelegate {
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        print("didSelect")
+        
+        guard let annotation = view.annotation else { return }
+        
+        let savedVenue = savedVenues.filter {$0.name == annotation.title}.first
+        
+        let detailVC = RestaurantDetailViewController(savedVenue!, dataPersistence)
+        navigationController?.pushViewController(detailVC, animated: true)
+        
+        //        print("didSelect")
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        guard annotation is MKPointAnnotation else { return nil }
+            
+     
         guard annotation is MKPointAnnotation else {
             return nil
         }
-        
+
         let identifier = "LocatioAnnotation"
         var annotationView: MKPinAnnotationView
         // try to deque
         if let dequeView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier) as? MKPinAnnotationView {
             annotationView = dequeView
+
+
         } else {
             annotationView = MKPinAnnotationView(annotation: annotation, reuseIdentifier: identifier)
             annotationView.canShowCallout = true
@@ -201,13 +214,13 @@ extension ViewController: MKMapViewDelegate {
         print("calloutAccesoryControllTaped")
     }
     func mapViewDidFinishLoadingMap(_ mapView: MKMapView) {
-          if isShowingNewAnnotations {
-              DispatchQueue.main.async {
-                  mapView.showAnnotations(self.annotations, animated: false)
-              }
-          }
-          isShowingNewAnnotations = false
-      }
+        if isShowingNewAnnotations {
+            DispatchQueue.main.async {
+                mapView.showAnnotations(self.annotations, animated: false)
+            }
+        }
+        isShowingNewAnnotations = false
+    }
 }
 
 extension ViewController: UISearchBarDelegate {
@@ -218,22 +231,22 @@ extension ViewController: UISearchBarDelegate {
         getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
         
         resignFirstResponder()
-//        if searchBar == mainView.searchBar {
-//            getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
-//            searchBar.resignFirstResponder()
-//        } else if searchBar == mainView.locationSearchBar {
-//            getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
-//            searchBar.resignFirstResponder()
-//        }
+        //        if searchBar == mainView.searchBar {
+        //            getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
+        //            searchBar.resignFirstResponder()
+        //        } else if searchBar == mainView.locationSearchBar {
+        //            getLocation(query: mainView.searchBar.text ?? "", location: mainView.locationSearchBar.text ?? "")
+        //            searchBar.resignFirstResponder()
+        //        }
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
         searchBar.text = ""
     }
     
-   
     
-  
+    
+    
 }
 
 
@@ -250,7 +263,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
         let venue = venues[indexPath.row]
         let id = venue.id
         var item: Items!
-            VenuesAPIClient.getPhoto(venuesID: id) { (result) in
+        VenuesAPIClient.getPhoto(venuesID: id) { (result) in
             switch result {
             case .failure(let appError):
                 print("Error: \(appError)")
@@ -268,11 +281,11 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegateFl
                                 fatalError("couldnt use saved venue at collection view")
                             }
                             self.savedVenues.append(savedVenue)
-                      }
-                 }
-             }
+                        }
+                    }
+                }
+            }
         }
-    }
         return cell
     }
     

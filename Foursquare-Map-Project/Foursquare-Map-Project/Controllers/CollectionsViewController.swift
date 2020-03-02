@@ -16,11 +16,21 @@ enum CategoryState {
 class CollectionsViewController: UIViewController {
     
     private let collectionView = CollectionsView()
+    
     public var category: Category?
+    
     public var categories = [Category]() {
         didSet{
-            self.collectionView.collectionView.reloadData()
+            DispatchQueue.main.async {
+              self.collectionView.collectionView.reloadData()
+            }
+            if categories.isEmpty {
+                collectionView.collectionView.backgroundView = EmptyView(title: "Title", message: "Message")
+            } else {
+                collectionView.collectionView.backgroundView = nil
+            }
         }
+        
     }
     public private(set) var categorytState = CategoryState.newCategory
     
@@ -254,7 +264,7 @@ extension CollectionsViewController: UICollectionViewDelegateFlowLayout {
     
       func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
             
-            var savedVenue = [SavedVenue]()
+        let savedVenue = [SavedVenue]()
             
 //            do{
 //                savedVenue = try dataPersistence.loadItems()[indexPath.row].savedVenue!

@@ -24,12 +24,14 @@ class EmptyView: UIView {
            label.font = UIFont.preferredFont(forTextStyle: .subheadline)
            label.numberOfLines = 4
            label.textAlignment = .center
-           label.text = "No Stories Saved"
+           label.text = "No Venues Saved"
            return label
     }()
     
-    override init(frame: CGRect) {
+  init(title: String, message: String) {
         super.init(frame: UIScreen.main.bounds)
+        titleLabel.text = title
+        messageLabel.text = message
         commonInit()
     }
     
