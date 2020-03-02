@@ -8,7 +8,8 @@
 import UIKit
 
 protocol CollectionsViewCellDelegate: AnyObject {
-    func collectionCellAddedVenue(_ cell: CollectionViewCell,venue: SavedVenue)
+    func collectionCellAddedVenue(_ cell: CollectionViewCell, oldCategory: Category, venue: SavedVenue)
+    func didLongPress(_ cell: CollectionViewCell)
 }
 
 class CollectionViewCell: UICollectionViewCell {
@@ -39,6 +40,13 @@ class CollectionViewCell: UICollectionViewCell {
         return button
     }()
     
+    private lazy var longPressGesture: UILongPressGestureRecognizer = {
+        let gesture = UILongPressGestureRecognizer()
+        gesture.addTarget(self, action: #selector(longPressAction(gesture:)))
+        
+        return gesture
+    }()
+    
     public weak var delegate: CollectionsViewCellDelegate?
     public var category: Category?
     public var savedVenue: SavedVenue?
@@ -63,19 +71,33 @@ class CollectionViewCell: UICollectionViewCell {
     }
     
     @objc private func addButtonPressed(){
-        guard let validSavedVenue = savedVenue  else { return }
-        delegate?.collectionCellAddedVenue(self, venue: validSavedVenue)
+        guard let validSavedVenue = savedVenue, let validOldCategory = category  else { return }
+        delegate?.collectionCellAddedVenue(self, oldCategory: validOldCategory, venue: validSavedVenue)
+    }
+    
+    @objc
+    private func longPressAction(gesture: UILongPressGestureRecognizer){
+        
+        if gesture.state == .began{
+            gesture.state = .cancelled
+            return
+        }
+        
+        //
+        delegate?.didLongPress(self)
     }
     
     //TODO: configureCell has to be refactore to configure the cell based on whether or not it was loaded from the collectionsViewController or the AddCollectionsController
     public func configureCell(category: Category, viewcontroller: UIViewController.Type, savedVenue: SavedVenue? = nil){
         self.category = category
         categoryNameLabel.text = category.name
+        restuarantImage.image = UIImage(data: category.image)
         
         if viewcontroller == AddCollectionsController.self{
             addButton.isHidden = false
             self.savedVenue = savedVenue
         } else {
+            addGestureRecognizer(longPressGesture)
             addButton.isHidden = true
         }
     }

@@ -23,6 +23,15 @@ class TableViewCell: UITableViewCell {
          label.font = UIFont.systemFont(ofSize: 14, weight: .bold)
          return label
      }()
+    
+    public lazy var categoryLabel: UILabel = {
+        let label = UILabel()
+        label.text = "Venue Category"
+        label.numberOfLines = 1
+        label.font = UIFont.systemFont(ofSize: 10, weight: .regular)
+        label.textColor = .systemGray2
+        return label
+    }()
 
 
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
@@ -38,9 +47,14 @@ class TableViewCell: UITableViewCell {
      private func commonInit() {
          setupVenueImage()
          setupNameLabel()
+        setupCategoryLabel()
      }
 
-
+    public func configureCell(with venue: SavedVenue){
+        venueImage.image = UIImage(data: venue.imageData)
+        nameLabel.text = venue.name
+        categoryLabel.text = venue.categoryName
+    }
 
      private func setupVenueImage() {
          addSubview(venueImage)
@@ -62,5 +76,15 @@ class TableViewCell: UITableViewCell {
              nameLabel.trailingAnchor.constraint(equalTo: trailingAnchor)
          ])
      }
+    
+    private func setupCategoryLabel(){
+        addSubview(categoryLabel)
+        categoryLabel.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            categoryLabel.topAnchor.constraint(equalTo: nameLabel.bottomAnchor, constant: 8),
+            categoryLabel.leadingAnchor.constraint(equalTo: nameLabel.leadingAnchor),
+            categoryLabel.trailingAnchor.constraint(equalTo: nameLabel.trailingAnchor)
+        ])
+    }
 
 }

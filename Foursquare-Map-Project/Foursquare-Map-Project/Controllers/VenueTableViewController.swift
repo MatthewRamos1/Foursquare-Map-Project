@@ -38,7 +38,7 @@ class VenueTableViewController: UIViewController {
         venueTableView.venuesTableView.delegate = self
         venueTableView.venuesTableView.register(TableViewCell.self, forCellReuseIdentifier: "tableViewCell")
     }
-
+    
 }
 
 extension VenueTableViewController: UITableViewDataSource {
@@ -49,7 +49,8 @@ extension VenueTableViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as? TableViewCell else {
             fatalError("Couldn't dequeue a TableViewCell")
         }
-//        let venue = venue[indexPath.row]
+        let venue = savedVenue[indexPath.row]
+        cell.configureCell(with: venue)
         return cell
     }
 
@@ -58,6 +59,12 @@ extension VenueTableViewController: UITableViewDataSource {
 extension VenueTableViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let venue = savedVenue[indexPath.row]
+        let detailVC = RestaurantDetailViewController(venue, dataPersistence)
+        navigationController?.pushViewController(detailVC, animated: true)
     }
 
 }

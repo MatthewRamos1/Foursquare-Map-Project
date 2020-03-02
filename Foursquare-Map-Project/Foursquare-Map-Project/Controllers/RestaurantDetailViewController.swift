@@ -66,7 +66,7 @@ class RestaurantDetailViewController: UIViewController {
         detailView.titleLabel.text = savedVenue.name
         detailView.locationLabel.text = """
         
-Adress:
+Address:
 \(savedVenue.address)
 """
         detailView.descriptionTextView.text = savedVenue.categoryName
