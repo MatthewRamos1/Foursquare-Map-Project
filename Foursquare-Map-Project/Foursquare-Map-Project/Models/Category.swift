@@ -16,4 +16,7 @@ struct Category: Codable & Equatable {
     var tipDescription: String?
     var savedVenue:[SavedVenue]?
     
+    static func ==(lhs: Category, rhs: Category)-> Bool{
+        return lhs.name == rhs.name && lhs.savedVenue == rhs.savedVenue
+    }
 }

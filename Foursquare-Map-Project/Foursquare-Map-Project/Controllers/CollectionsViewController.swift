@@ -16,7 +16,7 @@ enum CategoryState {
 class CollectionsViewController: UIViewController {
     
     private let collectionView = CollectionsView()
-    public var category: Category?
+    public var createdCategory: Category?
     public var categories = [Category]() {
         didSet{
             self.collectionView.collectionView.reloadData()
@@ -103,12 +103,12 @@ class CollectionsViewController: UIViewController {
         categoryTextField.delegate = self
         collectionView.collectionView.register(CollectionViewCell.self, forCellWithReuseIdentifier: "collectionsCell")
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(plusButtonPressed))
-        
+        loadCategoriesFromDataPersistence()
     }
     
     private func loadCategories() {
-        if let category = category {
-            self.category = category
+        if let category = createdCategory {
+            self.createdCategory = category
             categoryTextField.text = category.name
             categorytState = .existingCategory
         } else {
@@ -143,11 +143,22 @@ class CollectionsViewController: UIViewController {
         
         let imageData = UIImage(systemName: "photo")?.pngData()
         
-        let category = Category(name: categoryTextField.text ?? "Category Name", image: imageData!, savedVenue: [SavedVenue]())
+        let category = Category(name: categoryTextField.text ?? "Category Name", image: imageData!, savedVenue: nil)
         showAlert(title: nil, message: "Do you want to add a new category?") { (alertaction) in
             if alertaction.style == .default{
+                if self.dataPersistence.hasItemBeenSaved(category){
+                    self.showAlert(title: "Dupicated Categories", message: "You can not add duplicate categories to this collection: \(category.name)")
+                } else {
+                    do {
+                        // save to documents directory
+                        try self.dataPersistence.createItem(category)
+                        self.showAlert(title: "Item was added", message: "Category: \(category.name) was added to your collection")
+                    } catch {
+                        self.showAlert(title: "Saving error", message: "Error: \(error)")
+                    }
+                }
                 self.viewPopsDown()
-                self.categories.append(category)
+                //self.categories.append(category)
             } else if alertaction.style == .cancel {
                 self.viewPopsDown()
             }
@@ -160,6 +171,8 @@ class CollectionsViewController: UIViewController {
     @objc func cancelButtonPressed() {
         viewPopsDown()
     }
+    
+    
     
     
     private func setupInstructionLabel() {
@@ -232,12 +245,47 @@ extension CollectionsViewController: UICollectionViewDataSource {
             fatalError("could not downcast to CollectionViewCell")
         }
         cell.backgroundColor = .systemBackground
+        cell.delegate = self
         
         let category = categories[indexPath.row]
         cell.configureCell(category: category, viewcontroller: CollectionsViewController.self)
         
         return cell
     }
+}
+
+extension CollectionsViewController:CollectionsViewCellDelegate{
+    func collectionCellAddedVenue(_ cell: CollectionViewCell, oldCategory: Category, venue: SavedVenue) {
+        
+    }
+    
+    func didLongPress(_ cell: CollectionViewCell) {
+        guard let indexPath = collectionView.collectionView.indexPath(for: cell)  else { return }
+        
+        deleteCategory(indexPath: indexPath)
+    }
+    
+    @objc private func deleteCategory(indexPath: IndexPath){
+        print("DELETE")
+        dataPersistence.synchronize(categories)
+            
+            do {
+                categories = try dataPersistence.loadItems()
+            } catch {
+                showAlert(title: "Failed to load categories to delete", message: "\(error)")
+            }
+            
+        categories.remove(at: indexPath.row)
+    //        collectionView.deleteItems(at: [indexPath])
+            
+            do{
+                try dataPersistence.deleteItem(at: indexPath.row)
+            } catch {
+                showAlert(title: "Deletion Error", message: "\(error)")
+            }
+    }
+    
+    
 }
 
 extension CollectionsViewController: UICollectionViewDelegateFlowLayout {
@@ -253,18 +301,13 @@ extension CollectionsViewController: UICollectionViewDelegateFlowLayout {
     }
     
       func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-            
-            var savedVenue = [SavedVenue]()
-            
-//            do{
-//                savedVenue = try dataPersistence.loadItems()[indexPath.row].savedVenue!
-//            } catch{
-//                showAlert(title: "LOAD ERROR", message: "Failed to get saved items")
-//            }
+                    
+        guard let savedVenue = categories[indexPath.row].savedVenue else {
+            return
+        }
             
             
             let tableViewController = VenueTableViewController(savedVenue, dataPersistence)
-    //        let category = categories[indexPath.row]
             navigationController?.pushViewController(tableViewController, animated: true)
       }
 }
@@ -273,7 +316,7 @@ extension CollectionsViewController: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
         
-        category?.name = textField.text ?? "no event name"
+        createdCategory?.name = textField.text ?? "no event name"
         
         return true
     }
@@ -285,7 +328,7 @@ extension CollectionsViewController: DataPersistenceDelegate{
     }
     
     func didDeleteItem<T>(_ persistenceHelper: DataPersistence<T>, item: T) where T : Decodable, T : Encodable, T : Equatable {
-         
+         self.collectionView.collectionView.reloadData()
     }
     
     
