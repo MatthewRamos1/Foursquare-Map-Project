@@ -234,7 +234,7 @@ extension CollectionsViewController: UICollectionViewDataSource {
         cell.backgroundColor = .systemBackground
         
         let category = categories[indexPath.row]
-        cell.configureCell(category: category)
+        cell.configureCell(category: category, viewcontroller: CollectionsViewController.self)
         
         return cell
     }
