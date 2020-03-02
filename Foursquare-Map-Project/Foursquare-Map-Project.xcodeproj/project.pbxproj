@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C4B62EE240D5483006EFCA5 /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C4B62ED240D5483006EFCA5 /* Chain.swift */; };
 		0C53C1B62406FA3900D4CBBC /* ResultCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53C1B52406FA3900D4CBBC /* ResultCell.swift */; };
 		0C53C1B82406FABE00D4CBBC /* ResultCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0C53C1B72406FABE00D4CBBC /* ResultCell.xib */; };
 		0C53C1BE24071BDB00D4CBBC /* SavedVenue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C53C1BD24071BDB00D4CBBC /* SavedVenue.swift */; };
@@ -37,7 +38,6 @@
 		F162DDB92409813C005F952E /* AddCollectionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDB82409813C005F952E /* AddCollectionsView.swift */; };
 		F162DDBB24098156005F952E /* AddCollectionsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDBA24098156005F952E /* AddCollectionsController.swift */; };
 		F162DDBF2409DC49005F952E /* VenueTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDBE2409DC49005F952E /* VenueTableViewController.swift */; };
-		F162DDC12409DC6D005F952E /* Secrets.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDC02409DC6D005F952E /* Secrets.swift */; };
 		F162DDC32409DCCF005F952E /* TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDC22409DCCF005F952E /* TableView.swift */; };
 		F162DDC52409DD0B005F952E /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F162DDC42409DD0B005F952E /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
@@ -53,6 +53,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0C4B62ED240D5483006EFCA5 /* Chain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		0C53C1B52406FA3900D4CBBC /* ResultCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultCell.swift; sourceTree = "<group>"; };
 		0C53C1B72406FABE00D4CBBC /* ResultCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ResultCell.xib; sourceTree = "<group>"; };
 		0C53C1BD24071BDB00D4CBBC /* SavedVenue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SavedVenue.swift; sourceTree = "<group>"; };
@@ -85,7 +86,6 @@
 		F162DDB82409813C005F952E /* AddCollectionsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCollectionsView.swift; sourceTree = "<group>"; };
 		F162DDBA24098156005F952E /* AddCollectionsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddCollectionsController.swift; sourceTree = "<group>"; };
 		F162DDBE2409DC49005F952E /* VenueTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VenueTableViewController.swift; sourceTree = "<group>"; };
-		F162DDC02409DC6D005F952E /* Secrets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secrets.swift; sourceTree = "<group>"; };
 		F162DDC22409DCCF005F952E /* TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableView.swift; sourceTree = "<group>"; };
 		F162DDC42409DD0B005F952E /* TableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -110,6 +110,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C4B62EC240D545A006EFCA5 /* Secrets */ = {
+			isa = PBXGroup;
+			children = (
+				0C4B62ED240D5483006EFCA5 /* Chain.swift */,
+			);
+			path = Secrets;
+			sourceTree = "<group>";
+		};
 		0C53C1BF2407217300D4CBBC /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,14 +125,6 @@
 				F162DDAD24089174005F952E /* UIViewController+Extensions.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		0CAC4E572409A4F1008F032F /* Secrets */ = {
-			isa = PBXGroup;
-			children = (
-				F162DDC02409DC6D005F952E /* Secrets.swift */,
-			);
-			path = Secrets;
 			sourceTree = "<group>";
 		};
 		BE572E742400724B00B57246 = {
@@ -148,7 +148,7 @@
 		BE572E7F2400724B00B57246 /* Foursquare-Map-Project */ = {
 			isa = PBXGroup;
 			children = (
-				0CAC4E572409A4F1008F032F /* Secrets */,
+				0C4B62EC240D545A006EFCA5 /* Secrets */,
 				BE572EA8240092DB00B57246 /* Supporting Files */,
 				BE572E942400912500B57246 /* Network Services */,
 				BE572EAB2400F52400B57246 /* Cells */,
@@ -360,12 +360,12 @@
 				BE572EAD2400F67200B57246 /* CollectionsViewController.swift in Sources */,
 				A6DB6FFC2407211900A54C8B /* CollectionViewCell.swift in Sources */,
 				A6DB6FF42406F49900A54C8B /* RestaurantDetailView.swift in Sources */,
+				0C4B62EE240D5483006EFCA5 /* Chain.swift in Sources */,
 				F162DDC52409DD0B005F952E /* TableViewCell.swift in Sources */,
 				BE572EBA2400FA9A00B57246 /* Venue.swift in Sources */,
 				0C53C1B62406FA3900D4CBBC /* ResultCell.swift in Sources */,
 				F162DDBF2409DC49005F952E /* VenueTableViewController.swift in Sources */,
 				BE572E812400724B00B57246 /* AppDelegate.swift in Sources */,
-				F162DDC12409DC6D005F952E /* Secrets.swift in Sources */,
 				BE572EAF2400F97A00B57246 /* EmptyView.swift in Sources */,
 				BE572E832400724B00B57246 /* SceneDelegate.swift in Sources */,
 				0C6926F02404717B007CFE94 /* ResultsView.swift in Sources */,

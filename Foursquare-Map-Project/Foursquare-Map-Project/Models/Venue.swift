@@ -149,28 +149,9 @@ class CoreLocationSession: NSObject {
             }
         }
     }
-    
-    
-//    public func convertPlacemarksToCordinate(adressString: String) {
-//        CLGeocoder().geocodeAddressString(adressString) { (placemarks, error) in
-//            if let error = error {
-//                print("geocodeAdressString: \(error)")
-//            }
-//            if let firstPlacemark = placemarks?.first,
-//                let location = firstPlacemark.location {
-//                print("coordinate is \(location.coordinate)")
-//            }
-//        }
-//    }
-    
-
 }
 
 extension CoreLocationSession: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("didUpdateLocation: \(locations)")
-    }
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print("didFailWithError")
     }
@@ -178,30 +159,17 @@ extension CoreLocationSession: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         switch status {
         case .authorizedAlways:
-            print("authorizedAlways")
             delegate?.authorizationStatusChanged(status: status)
         case .authorizedWhenInUse:
-            print("authorizedWhenInUse")
             delegate?.authorizationStatusChanged(status: status)
         case .denied:
-            print("denied")
             delegate?.authorizationStatusChanged(status: status)
         case .notDetermined:
-            print("notDetermined")
             delegate?.authorizationStatusChanged(status: status)
         case .restricted:
-            print("restricted")
             delegate?.authorizationStatusChanged(status: status)
         default:
             break
         }
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didEnterRegion region: CLRegion) {
-        print("didEnterRegion \(region)")
-    }
-    
-    func locationManager(_ manager: CLLocationManager, didExitRegion region: CLRegion) {
-        print("didExitRegion \(region)")
     }
 }

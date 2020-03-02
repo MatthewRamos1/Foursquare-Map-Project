@@ -126,7 +126,6 @@ class ViewController: UIViewController {
                 print("app error \(appError)")
             case .success(let venues):
                 self.venues = venues
-                print(venues)
             }
         }
         
@@ -134,7 +133,6 @@ class ViewController: UIViewController {
     
     func makeAnnotations() -> [MKPointAnnotation] {
         var annotations = [MKPointAnnotation]()
-        //var oldAnnotations = [MKPointAnnotation]()
         for locations in venues {
             let annotation = MKPointAnnotation()
             annotation.coordinate = CLLocationCoordinate2D(latitude: locations.location.lat, longitude: locations.location.lng)
@@ -143,15 +141,7 @@ class ViewController: UIViewController {
         }
          isShowingNewAnnotations = true
         self.annotations = annotations
-        
-//        if annotations == self.annotations{
-//            isShowingNewAnnotations = true
-//        } else {
-//            annotations = self.oldAnnotations
-//            isShowingNewAnnotations = false
-//        }
-        print(self.annotations)
-        return annotations
+        return annotations //
     }
     
     
