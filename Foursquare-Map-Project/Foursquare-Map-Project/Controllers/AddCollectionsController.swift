@@ -56,6 +56,15 @@ class AddCollectionsController: UIViewController {
 
 extension AddCollectionsController: UICollectionViewDelegateFlowLayout{
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let maxSize: CGSize = UIScreen.main.bounds.size
+        let itemSpace: CGFloat = 10
+        let numberOfItems: CGFloat = 2
+        let totalSpacing: CGFloat = numberOfItems * itemSpace
+        let itemWidth: CGFloat = (maxSize.width - 20 - totalSpacing) / numberOfItems
+        //      let itemHeight: CGFloat = maxSize.height * 0.30
+        return CGSize(width: itemWidth, height: itemWidth)
+    }
 }
 
 extension AddCollectionsController: UICollectionViewDataSource{
@@ -69,10 +78,19 @@ extension AddCollectionsController: UICollectionViewDataSource{
         }
         let category = collections[indexPath.row]
         cell.backgroundColor = .systemBackground
+        cell.delegate = self
         
         //TODO: configureCell must get refactored
-        cell.configureCell(category: category)
+        cell.configureCell(category: category, viewcontroller: AddCollectionsController.self, savedVenue: savedVenue)
         
         return cell
     }
+}
+
+extension AddCollectionsController: CollectionsViewCellDelegate{
+    func collectionCellAddedVenue(_ cell: CollectionViewCell, venue: SavedVenue) {
+        
+    }
+    
+    
 }

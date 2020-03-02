@@ -7,7 +7,9 @@
 //
 import UIKit
 
-
+protocol CollectionsViewCellDelegate: AnyObject {
+    func collectionCellAddedVenue(_ cell: CollectionViewCell,venue: SavedVenue)
+}
 
 class CollectionViewCell: UICollectionViewCell {
     
@@ -29,6 +31,18 @@ class CollectionViewCell: UICollectionViewCell {
         return label
     }()
     
+    public lazy var addButton: UIButton = {
+        let button = UIButton()
+        button.setImage(UIImage(systemName: "plus.circle.fill"), for: . normal)
+        button.tintColor = .systemGreen
+        button.isHidden = true
+        return button
+    }()
+    
+    public weak var delegate: CollectionsViewCellDelegate?
+    public var category: Category?
+    public var savedVenue: SavedVenue?
+    
     override init(frame: CGRect) {
         super.init(frame: UIScreen.main.bounds)
         commonInit()
@@ -44,12 +58,26 @@ class CollectionViewCell: UICollectionViewCell {
   
         setupRestaurantImage()
         setupCategoryLabel()
+        setupButton()
+        addButton.addTarget(self, action: #selector(addButtonPressed), for: .touchUpInside)
     }
     
+    @objc private func addButtonPressed(){
+        guard let validSavedVenue = savedVenue  else { return }
+        delegate?.collectionCellAddedVenue(self, venue: validSavedVenue)
+    }
     
     //TODO: configureCell has to be refactore to configure the cell based on whether or not it was loaded from the collectionsViewController or the AddCollectionsController
-    public func configureCell(category: Category){
+    public func configureCell(category: Category, viewcontroller: UIViewController.Type, savedVenue: SavedVenue? = nil){
+        self.category = category
         categoryNameLabel.text = category.name
+        
+        if viewcontroller == AddCollectionsController.self{
+            addButton.isHidden = false
+            self.savedVenue = savedVenue
+        } else {
+            addButton.isHidden = true
+        }
     }
 
     
@@ -71,6 +99,15 @@ class CollectionViewCell: UICollectionViewCell {
             categoryNameLabel.topAnchor.constraint(equalTo: restuarantImage.bottomAnchor, constant: 10),
             categoryNameLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             categoryNameLabel.trailingAnchor.constraint(equalTo: safeAreaLayoutGuide.trailingAnchor, constant: -20)
+        ])
+    }
+    
+    private func setupButton(){
+        addSubview(addButton)
+        addButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            addButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            addButton.centerYAnchor.constraint(equalTo: centerYAnchor)
         ])
     }
 }
