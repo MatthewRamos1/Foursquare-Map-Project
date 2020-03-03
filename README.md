@@ -1,16 +1,15 @@
-# Pursuit-Core-iOS-Foursquare-Map-Project
+# Foursquare Map Project
 
 ## Overview 
 
-Use MapKit and CoreLocation to build out a Foursquare like app with the following spcecifications:
-
-* User can search for a venue
-* The app shows results those results with annotations on a map
-* The user can toggle between a map view and a list view
-* If the user denies access to location, search still works
-* User can create a collection 
-* User can add venues to a collection 
-
+Search for any restaurant, anywhere. Just put in the type of food you’re looking for and the location! No need to google place by place, tediously searching through each website. The app shows you all your favorite food spots near by AND the pictures of their meals. Like the place? Add it to your own customized collection, updating it each time you find a new fave! You can also add a tip about a place, like: “The most delish fried chicken!” or “Coffee made me feel like never before!”
+Don’t waist your time on long monotonous searches ever again. Instead, use that time to enjoy your meal!
+Features:
+- Search functionality by food and location
+- Pictures of the venue's cuisine
+- Collection creation and customization
+- A designated field for tips and descriptions of your favorite eatery
+- Detailed information on multitudes of restaurants and cafes
 
 ## Core Feature Gifs
 
@@ -56,25 +55,3 @@ Use MapKit and CoreLocation to build out a Foursquare like app with the followin
 <img src="https://github.com/C4Q/AC-iOS-Unit5GroupProject/blob/master/Images/get-directions.gif" width="358" height="626">
 </p>
 
-
-**Apply for a Foursquare Developer Account and API Key:**  
-https://developer.foursquare.com/docs/api/getting-started  
-
-[Foursquare Endpoint Overview](https://developer.foursquare.com/docs/api/endpoints)  
-
-**Venue Search Endpoint:**  
-Request: 
-```
-GET https://api.foursquare.com/v2/venues/search
-```
-
-**Venue Photos Endpoint:**  
-Request: 
-```
-GET https://api.foursquare.com/v2/venues/VENUE_ID/photos
-```
-
-## Rubric 
-
-
-![rubric](./rubric.png)
