@@ -3,7 +3,7 @@
 ## Overview 
 
 Search for any restaurant, anywhere. Just put in the type of food you’re looking for and the location! No need to google place by place, tediously searching through each website. The app shows you all your favorite food spots near by AND the pictures of their meals. Like the place? Add it to your own customized collection, updating it each time you find a new fave! You can also add a tip about a place, like: “The most delish fried chicken!” or “Coffee made me feel like never before!”
-Don’t waist your time on long monotonous searches ever again. Instead, use that time to enjoy your meal!
+Don’t waste your time on long monotonous searches ever again. Instead, use that time to enjoy your meal!
 Features:
 - Search functionality by food and location
 - Pictures of the venue's cuisine
